@@ -9,4 +9,6 @@ import TreeDiagram
 import TreeDiagram.Svg
 import TypedSvg exposing (circle, g, line, path, rect, style, svg, text_)
 import TypedSvg.Attributes exposing (class, d, fill, fontFamily, fontSize, stroke, strokeWidth, textAnchor, transform, viewBox)
-import TypedSvg.Attributes.InPx exposing (cx, cy, height, r, width, x, x1, x2, y, y1, y2)
+import TypedSvg.Attributes.InPx exposing (cx, cy, height, r, width, x, x1, x2, y, y1, y2) 
+import TypedSvg.Core exposing (Svg)
+import TypedSvg.Types as ST exposing (AnchorAlignment(..), Length(..), Paint(..), Transform(..)) 
