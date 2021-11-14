@@ -498,7 +498,12 @@
                         {"data": { "id":"132961,Maruti Alto 800 2016-2019 LXI" }},
                         {"data": { "id":"132982,Toyota Fortuner 4x4 AT" }},
                         {"data": { "id":"132984,Toyota Innova 2.5 GX (Diesel) 7 Seater" }},
-                        {"data": { "id":"133025,Tata Bolt Revotron XT" }},
+                        {"data": { "id":"133025,Tata Bolt Revotron XT" }}
+                       
+                      ]
+                    },
+
+                    
                         
                         
                        
