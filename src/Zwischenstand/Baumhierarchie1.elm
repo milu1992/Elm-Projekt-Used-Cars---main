@@ -17,5 +17,12 @@ import TypedSvg.Types as ST exposing (AnchorAlignment(..), Length(..), Paint(..)
 --- Start Baumdiagramm 
 type alias Model = 
     {tree : TreeDiagram.Tree String, errorMsg : String}
+
+init : () -> ( Model, Cmd Msg )
+init () =
+    ( { tree = TreeDiagram.node "" [], errorMsg = "Loading ..." }
+    , Http.get { url = 
+
 type Msg
     = GotFlare (Result Http.Error (TreeDiagram.Tree String))
+
