@@ -30,9 +30,13 @@ type Msg
 
 treeDecoder : Json.Decode.Decoder (TreeDiagram.Tree String)
 treeDecoder =
-son.Decode.map2
+    Json.Decode.map2
         (\name children ->
             case children of
                 Nothing ->
                     TreeDiagram.node name []
+
+                Just c ->
+                    TreeDiagram.node name c
+        )
 
