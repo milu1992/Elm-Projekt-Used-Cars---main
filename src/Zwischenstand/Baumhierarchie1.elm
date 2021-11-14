@@ -29,7 +29,7 @@ type Msg
     = GotFlare (Result Http.Error (TreeDiagram.Tree String))
 
 treeDecoder : Json.Decode.Decoder (TreeDiagram.Tree String)
-treeDecoder : 
+treeDecoder =
 son.Decode.map2
         (\name children ->
             case children of
