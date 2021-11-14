@@ -21,8 +21,18 @@ type alias Model =
 init : () -> ( Model, Cmd Msg )
 init () =
     ( { tree = TreeDiagram.node "" [], errorMsg = "Loading ..." }
-    , Http.get { url = 
+    , Http.get { url = --url json Datei-- , expect = Http.expectJson GotFlare treeDecoder }
+    )
+
 
 type Msg
     = GotFlare (Result Http.Error (TreeDiagram.Tree String))
+
+treeDecoder : Json.Decode.Decoder (TreeDiagram.Tree String)
+treeDecoder : 
+son.Decode.map2
+        (\name children ->
+            case children of
+                Nothing ->
+                    TreeDiagram.node name []
 
