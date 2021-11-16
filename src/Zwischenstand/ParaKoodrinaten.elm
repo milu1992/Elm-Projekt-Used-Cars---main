@@ -44,3 +44,22 @@ type Model
     , dritterName : String
     , vierterName : String
     }
+
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( Loading
+    , GetData GotText
+    )
+
+GetData : (Result Http.Error String -> Msg) -> Cmd Msg
+GetData x = 
+    liste
+        |> List.map
+            (\datensatz ->
+                Http.get
+                    { url = "https://github.com/milu1992/Elm-Projekt-Used-Cars---main/blob/master/Data/Aufbereitete%20Daten/CarCleanFinal.csv.csv/" ++ datensatz
+                    , expect = Http.expectString x
+                    }
+            )
+        |> Cmd.batch
+
