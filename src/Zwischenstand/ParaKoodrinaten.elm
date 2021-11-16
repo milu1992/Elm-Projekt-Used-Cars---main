@@ -19,3 +19,4 @@ import TypedSvg.Attributes exposing (class, d, fill, fontFamily, fontSize, strok
 import TypedSvg.Attributes.InPx exposing (cx, cy, height, r, width, x, x1, x2, y, y1, y2)
 import TypedSvg.Core exposing (Svg)
 import TypedSvg.Types exposing (AnchorAlignment(..), Length(..), Paint(..), Transform(..))
+
