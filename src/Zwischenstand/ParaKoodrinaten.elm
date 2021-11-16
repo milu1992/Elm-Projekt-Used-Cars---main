@@ -29,3 +29,18 @@ main =
         , subscriptions = subscriptions
         , view = view
         }
+
+type Model
+  = Failure
+  | Loading
+  | Success 
+    { data : List Cars
+    , ersteFunktion : Cars -> Float
+    , zweiteFunktion : Cars -> Float
+    , dritteFunktion : Cars -> Float
+    , vierteFunktion : Cars -> Float
+    , ersterName : String
+    , zweiterName : String
+    , dritterName : String
+    , vierterName : String
+    }
