@@ -63,3 +63,11 @@ update msg model =
               }
             , Cmd.none
             )
+
+
+drawLine : (Float ) -> Svg msg
+drawLine ( targetX, targetY ) =
+    line
+        [ x1 0, y1 0, x2 targetX, y2 targetY, stroke (ST.Paint Color.black) ]
+        []
+
