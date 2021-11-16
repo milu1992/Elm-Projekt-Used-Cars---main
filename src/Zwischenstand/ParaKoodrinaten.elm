@@ -48,11 +48,11 @@ type Model
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( Loading
-    , GetData GotText
+    , getData GotText
     )
 
-GetData : (Result Http.Error String -> Msg) -> Cmd Msg
-GetData x = 
+getData : (Result Http.Error String -> Msg) -> Cmd Msg
+getData x = 
     liste
         |> List.map
             (\datensatz ->
