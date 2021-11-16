@@ -15,18 +15,15 @@ import TypedSvg.Core exposing (Svg)
 import TypedSvg.Types as ST exposing (AnchorAlignment(..), Length(..), Paint(..), Transform(..))
 
 --- Start Baumdiagramm 
-type alias Model = 
-    {tree : TreeDiagram.Tree String, errorMsg : String}
+type alias Model =
+    { tree : TreeDiagram.Tree String, errorMsg : String }
 
 init : () -> ( Model, Cmd Msg )
 init () =
     ( { tree = TreeDiagram.node "" [], errorMsg = "Loading ..." }
-    , Http.get { url = --url json Datei-- , expect = Http.expectJson GotFlare treeDecoder }
+    , Http.get { url = "http://github.com/milu1992/Elm-Projekt-Used-Cars---main/blob/master/Data/LocationCar.json", expect = Http.expectJson GotFlare treeDecoder }
     )
 
-
-type Msg
-    = GotFlare (Result Http.Error (TreeDiagram.Tree String))
 
 treeDecoder : Json.Decode.Decoder (TreeDiagram.Tree String)
 treeDecoder =
