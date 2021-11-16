@@ -35,3 +35,31 @@ treeDecoder =
                 Just c ->
                     TreeDiagram.node name c
         )
+        (Json.Decode.field "data" (Json.Decode.field "id" Json.Decode.string))
+                (Json.Decode.maybe <|
+                    Json.Decode.field "children" <|
+                        Json.Decode.list <|
+                            Json.Decode.lazy
+                                (\_ -> treeDecoder)
+                )
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        GotFlare (Ok newTree) ->
+            ( { model | tree = newTree, errorMsg = "No Error" }, Cmd.none )
+
+        GotFlare (Err error) ->
+            ( { model
+                | tree = TreeDiagram.node "" []
+                , errorMsg =
+                    case error of
+                        Http.BadBody newErrorMsg ->
+                            newErrorMsg
+
+                        _ ->
+                            "Some other Error"
+              }
+            , Cmd.none
+            )
