@@ -71,3 +71,26 @@ drawLine ( targetX, targetY ) =
         [ x1 0, y1 0, x2 targetX, y2 targetY, stroke (ST.Paint Color.black) ]
         []
 
+
+drawNode : String -> Svg msg
+drawNode n =
+    g
+        []
+        [ circle 
+            [ r 16
+            , stroke (Paint Color.red)
+            , fill (Paint Color.white)
+            , cx 0
+            , cy 0 
+            ] 
+            []
+        , text_ 
+            [ textAnchor AnchorEnd
+            , transform 
+                [ Translate -5.5 -20.5 
+                , Rotate 60.0 0.0 0.0
+                ]
+            ] 
+            [ text n ]
+        ]
+
