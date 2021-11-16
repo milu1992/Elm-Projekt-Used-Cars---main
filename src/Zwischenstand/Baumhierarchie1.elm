@@ -24,7 +24,6 @@ init () =
     , Http.get { url = "http://github.com/milu1992/Elm-Projekt-Used-Cars---main/blob/master/Data/LocationCar.json", expect = Http.expectJson GotFlare treeDecoder }
     )
 
-
 treeDecoder : Json.Decode.Decoder (TreeDiagram.Tree String)
 treeDecoder =
     Json.Decode.map2
@@ -36,4 +35,3 @@ treeDecoder =
                 Just c ->
                     TreeDiagram.node name c
         )
-
