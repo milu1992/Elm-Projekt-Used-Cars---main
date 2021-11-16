@@ -20,3 +20,12 @@ import TypedSvg.Attributes.InPx exposing (cx, cy, height, r, width, x, x1, x2, y
 import TypedSvg.Core exposing (Svg)
 import TypedSvg.Types exposing (AnchorAlignment(..), Length(..), Paint(..), Transform(..))
 
+
+
+main =
+  Browser.element
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }
