@@ -94,3 +94,18 @@ drawNode n =
             [ text n ]
         ]
 
+view : Model -> Html Msg
+view model =
+    div []
+        [ TreeDiagram.Svg.draw TreeDiagram.defaultTreeLayout drawNode drawLine model.tree --Html.text model.errorMsg
+        ]
+
+main : Program () Model Msg
+main =
+    Browser.element
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = \m -> Sub.none
+        } 
+
