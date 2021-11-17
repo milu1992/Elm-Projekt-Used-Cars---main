@@ -76,15 +76,15 @@ csvStringToValue csvRaw =
 
 type alias Cars =
     { name : String
-    , alc : Float
-    , temperatur : Float
-    , suesse : Float
-    , saeurengehalt : Float
-    , koerper : Float
-    , gerbstoff : Float
-    , preis : Float
-    , jahr : Float
-    , ml : Float
+    ,  : Float
+    ,  : Float
+    ,  : Float
+    ,  : Float
+    ,  : Float
+    , : Float
+    ,  : Float
+    ,  : Float
+    ,  : Float
     }
 
 
