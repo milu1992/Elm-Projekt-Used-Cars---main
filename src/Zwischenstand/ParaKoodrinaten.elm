@@ -35,10 +35,10 @@ type Model
   | Loading
   | Success 
     { data : List Cars
-    , ersteFunktion : Cars -> Float
-    , zweiteFunktion : Cars -> Float
-    , dritteFunktion : Cars -> Float
-    , vierteFunktion : Cars -> Float
+    , ersteFunktion : Cars -> integer
+    , zweiteFunktion : Cars -> integer
+    , dritteFunktion : Cars -> integer
+    , vierteFunktion : Cars -> integer
     , ersterName : String
     , zweiterName : String
     , dritterName : String
@@ -76,15 +76,16 @@ csvStringToValue csvRaw =
 
 type alias Cars =
     { name : String
-    ,  : Float
-    ,  : Float
-    ,  : Float
-    ,  : Float
-    ,  : Float
-    , : Float
-    ,  : Float
-    ,  : Float
-    ,  : Float
+    , jahr  : integer 
+    , kilometerstand : integer
+    , kilometerPerLiter : integer
+    , hubraum : integer
+    ,  ps : integer
+    , sitze : integer
+    , preisEuro : integer
+    , kraftstoff : String
+    , schaltung : String
+    , besitzer : String
     }
 
 
