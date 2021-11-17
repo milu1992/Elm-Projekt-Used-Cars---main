@@ -67,4 +67,11 @@ liste : List String
 liste =
     ["CarCleanFinal.csv.csv"]
 
+csvStringToValue : String -> List Cars
+csvStringToValue csvRaw =
+    Csv.parse csvRaw
+        |> Csv.Decode.decodeCsv decodeCars
+        |> Result.toMaybe
+        |> Maybe.withDefault []
 
+        
