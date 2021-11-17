@@ -35,10 +35,10 @@ type Model
   | Loading
   | Success 
     { data : List Cars
-    , ersteFunktion : Cars -> integer
-    , zweiteFunktion : Cars -> integer
-    , dritteFunktion : Cars -> integer
-    , vierteFunktion : Cars -> integer
+    , ersteFunktion : Cars -> Float
+    , zweiteFunktion : Cars -> Float
+    , dritteFunktion : Cars -> Float
+    , vierteFunktion : Cars -> Float
     , ersterName : String
     , zweiterName : String
     , dritterName : String
@@ -76,16 +76,33 @@ csvStringToValue csvRaw =
 
 type alias Cars =
     { name : String
-    , jahr  : integer 
-    , kilometerstand : integer
-    , kilometerPerLiter : integer
-    , hubraum : integer
-    ,  ps : integer
-    , sitze : integer
-    , preisEuro : integer
+    , jahr  : Float
+    , kilometerstand :Float
     , kraftstoff : String
     , schaltung : String
     , besitzer : String
+    , kilometerPerLiter : Float
+    , hubraum : Float
+    , pS : Float
+    , sitze : Float
+    , preisEuro : Float   
     }
 
+decodeCars : Csv.Decode.Decoder (Cars -> a) a
+decodeWeine =
+    Csv.Decode.map Cars
+        (Csv.Decode.field "name" Ok
+        (Csv.Decode.field "kilometerstand" Ok
+        (Csv.Decode.field "schaltung" Ok
+        (Csv.Decode.field "besitzer" Ok
+            |> Csv.Decode.andMap (Csv.Decode.field "jahr"(String.toFloat >> Result.fromMaybe "error parsing string"))
+            |> Csv.Decode.andMap (Csv.Decode.field "kilometerstand"(String.toFloat >> Result.fromMaybe "error parsing string"))
+            |> Csv.Decode.andMap (Csv.Decode.field "kilometerPerLiter"(String.toFloat >> Result.fromMaybe "error parsing string"))
+            |> Csv.Decode.andMap (Csv.Decode.field "hubraum"(String.toFloat >> Result.fromMaybe "error parsing string"))
+            |> Csv.Decode.andMap (Csv.Decode.field "pS"(String.toFloat >> Result.fromMaybe "error parsing string"))
+            |> Csv.Decode.andMap (Csv.Decode.field "sitze"(String.toFloat >> Result.fromMaybe "error parsing string"))
+            |> Csv.Decode.andMap (Csv.Decode.field "preisEuro"(String.toFloat >> Result.fromMaybe "error parsing string"))
+        )
+
+        
 
