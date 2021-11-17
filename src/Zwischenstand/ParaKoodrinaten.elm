@@ -63,3 +63,8 @@ getData x =
             )
         |> Cmd.batch
 
+liste : List String
+liste =
+    ["CarCleanFinal.csv.csv"]
+
+
