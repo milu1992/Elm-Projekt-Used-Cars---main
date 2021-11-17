@@ -89,7 +89,7 @@ type alias Cars =
     }
 
 decodeCars : Csv.Decode.Decoder (Cars -> a) a
-decodeWeine =
+decodeCars =
     Csv.Decode.map Cars
         (Csv.Decode.field "name" Ok
         (Csv.Decode.field "kilometerstand" Ok
@@ -104,5 +104,6 @@ decodeWeine =
             |> Csv.Decode.andMap (Csv.Decode.field "preisEuro"(String.toFloat >> Result.fromMaybe "error parsing string"))
         )
 
-        
+
+
 
