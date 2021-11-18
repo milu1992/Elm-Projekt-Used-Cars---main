@@ -387,6 +387,8 @@ view model =
                                     , Html.button [onClick (Change4 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]    
                             ] 
+                                ,parallelCoodinatesPlot 600 2 plotDaten
+                        ]
 
 
 
