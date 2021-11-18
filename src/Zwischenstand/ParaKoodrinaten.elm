@@ -122,6 +122,12 @@ update msg model =
                 Ok fullText ->
                     ( Success <| { data = CarsListe [ fullText ], ersteFunktion = .jahr, zweiteFunktion = .kilometerstand, dritteFunktion = .pS, vierteFunktion = .preisEuro , ersterName = "Baujahr", zweiterName = "Kilometerstand", dritterName = "Pferdestärken", vierterName = "PreisinEuro"}, Cmd.none )
 
+                      Err _ ->
+                    ( model, Cmd.none )
+        Ändere1 (x, a) ->
+            case model of
+                Success m ->
+                    ( Success <| { data = m.data, ersteFunktion = x, zweiteFunktion = m.zweiteFunktion, dritteFunktion = m.dritteFunktion, vierteFunktion = m.vierteFunktion , ersterName = a, zweiterName = m.zweiterName, dritterName = m.dritterName, vierterName = m.vierterName}, Cmd.none )
                     
 
 
