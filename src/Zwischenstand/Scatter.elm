@@ -14,3 +14,10 @@ import Csv
 import Csv.Decode
 import Browser
 
+main =
+  Browser.element
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }
