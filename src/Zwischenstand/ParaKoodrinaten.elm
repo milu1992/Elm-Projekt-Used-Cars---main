@@ -306,6 +306,10 @@ view model =
         Failure ->
             Html.text "Gebrauchtwagen konnten leider nicht geöffnet werden."
 
+            Loading ->
+            Html.text "Gebrauchtwagen werden geladen"
+            
+
 
 
 
