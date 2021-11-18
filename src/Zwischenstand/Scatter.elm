@@ -21,3 +21,8 @@ main =
         , subscriptions = subscriptions
         , view = view
         }
+
+type Model
+  = Failure
+  | Loading
+  | Success (List String)
