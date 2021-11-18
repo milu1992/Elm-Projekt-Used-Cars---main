@@ -80,12 +80,13 @@ type alias Cars =
     , kilometerstand :Float
     , pS : Float
     , preisEuro : Float   
+    , sitze : Float
     , kraftstoff : String
     , schaltung : String
     , besitzer : String
     , kilometerPerLiter : Float
     , hubraum : Float
-    , sitze : Float
+    
     
     }
 
@@ -119,7 +120,9 @@ update msg model =
         GotText result ->
             case result of
                 Ok fullText ->
-                    ( Success <| { data = CarsListe [ fullText ], ersteFunktion = .jahr, zweiteFunktion = .kilometerstand, dritteFunktion = .suesse, vierteFunktion = .saeurengehalt , ersterName = "Jahr", zweiterName = "Kilometerstand", dritterName = "Süße", vierterName = "Säuregehalt"}, Cmd.none )
+                    ( Success <| { data = CarsListe [ fullText ], ersteFunktion = .jahr, zweiteFunktion = .kilometerstand, dritteFunktion = .pS, vierteFunktion = .preisEuro , ersterName = "Baujahr", zweiterName = "Kilometerstand", dritterName = "Pferdestärken", vierterName = "PreisinEuro"}, Cmd.none )
+
+                    
 
 
 
