@@ -78,14 +78,15 @@ type alias Cars =
     { name : String
     , jahr  : Float
     , kilometerstand :Float
+    , pS : Float
+    , preisEuro : Float   
     , kraftstoff : String
     , schaltung : String
     , besitzer : String
     , kilometerPerLiter : Float
     , hubraum : Float
-    , pS : Float
     , sitze : Float
-    , preisEuro : Float   
+    
     }
 
 decodeCars : Csv.Decode.Decoder (Cars -> a) a
@@ -94,15 +95,16 @@ decodeCars =
         (Csv.Decode.field "name" Ok
             |> Csv.Decode.andMap (Csv.Decode.field "jahr"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "kilometerstand"(String.toFloat >> Result.fromMaybe "error parsing string"))
+            |> Csv.Decode.andMap (Csv.Decode.field "pS"(String.toFloat >> Result.fromMaybe "error parsing string"))
+            |> Csv.Decode.andMap (Csv.Decode.field "sitze"(String.toFloat >> Result.fromMaybe "error parsing string"))
+            |> Csv.Decode.andMap (Csv.Decode.field "preisEuro"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "kraftstoff" ok
             |> Csv.Decode.andMap (Csv.Decode.field "schaltung" ok
             |> Csv.Decode.andMap (Csv.Decode.field "besitzer" ok
             |> Csv.Decode.andMap (Csv.Decode.field "kilometerPerLiter"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "hubraum"(String.toFloat >> Result.fromMaybe "error parsing string"))
-            |> Csv.Decode.andMap (Csv.Decode.field "pS"(String.toFloat >> Result.fromMaybe "error parsing string"))
-            |> Csv.Decode.andMap (Csv.Decode.field "sitze"(String.toFloat >> Result.fromMaybe "error parsing string"))
-            |> Csv.Decode.andMap (Csv.Decode.field "preisEuro"(String.toFloat >> Result.fromMaybe "error parsing string"))
         )
+
 --- Update function deklarieren ---
 type Msg
     = GotText (Result Http.Error String)
@@ -117,7 +119,7 @@ update msg model =
         GotText result ->
             case result of
                 Ok fullText ->
-                    ( Success <| { data = CarsListe [ fullText ], ersteFunktion = .alc, zweiteFunktion = .temperatur, dritteFunktion = .suesse, vierteFunktion = .saeurengehalt , ersterName = "Alkohol", zweiterName = "Temperatur", dritterName = "Süße", vierterName = "Säuregehalt"}, Cmd.none )
+                    ( Success <| { data = CarsListe [ fullText ], ersteFunktion = .jahr, zweiteFunktion = .kilometerstand, dritteFunktion = .suesse, vierteFunktion = .saeurengehalt , ersterName = "Jahr", zweiterName = "Kilometerstand", dritterName = "Süße", vierterName = "Säuregehalt"}, Cmd.none )
 
 
 
