@@ -80,4 +80,26 @@ transform2 ganzerText =
 type Msg
     = GotText (Result Http.Error String)
 
-    
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    let
+        currentList =
+            case model of
+                Success l ->
+                    l
+
+                Failure ->
+                    []
+
+                Loading ->
+                    []
+    in
+    case msg of
+        GotText result ->
+            case result of
+                Ok fullText ->
+                    ( Success <| currentList ++ [ fullText ], Cmd.none )
+
+                Err _ ->
+                    ( model, Cmd.none )
