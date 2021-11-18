@@ -52,3 +52,18 @@ csvString_to_data csvRaw =
         |> Csv.Decode.decodeCsv decodeStockDay
         |> Result.toMaybe
         |> Maybe.withDefault []
+
+decodeStockDay : Csv.Decode.Decoder (( String, Maybe Float, Maybe Float ) -> a) a
+decodeStockDay =
+    Csv.Decode.map (\a b c-> ( a, Just b, Just c ))
+        (Csv.Decode.field "name" Ok
+            |> Csv.Decode.andMap
+                (Csv.Decode.field "preisEuro" 
+                    (String.toFloat >> Result.fromMaybe "error parsing string")
+                    |> Csv.Decode.andMap
+                        (Csv.Decode.field "jahr" 
+                            (String.toFloat >> Result.fromMaybe "error parsing string")
+                                
+                        )
+                )
+        )
