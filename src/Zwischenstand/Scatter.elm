@@ -41,3 +41,14 @@ init _ =
             )
         |> Cmd.batch
     )
+
+liste : List String
+liste =
+    [ "CarCleanFinal.csv"]
+
+csvString_to_data : String -> List (String, Maybe Float, Maybe Float)
+csvString_to_data csvRaw =
+    Csv.parse csvRaw
+        |> Csv.Decode.decodeCsv decodeStockDay
+        |> Result.toMaybe
+        |> Maybe.withDefault []
