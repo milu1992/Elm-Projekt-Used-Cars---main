@@ -92,17 +92,34 @@ decodeCars : Csv.Decode.Decoder (Cars -> a) a
 decodeCars =
     Csv.Decode.map Cars
         (Csv.Decode.field "name" Ok
-        (Csv.Decode.field "kilometerstand" Ok
-        (Csv.Decode.field "schaltung" Ok
-        (Csv.Decode.field "besitzer" Ok
             |> Csv.Decode.andMap (Csv.Decode.field "jahr"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "kilometerstand"(String.toFloat >> Result.fromMaybe "error parsing string"))
+            |> Csv.Decode.andMap (Csv.Decode.field "kraftstoff" ok
+            |> Csv.Decode.andMap (Csv.Decode.field "schaltung" ok
+            |> Csv.Decode.andMap (Csv.Decode.field "besitzer" ok
             |> Csv.Decode.andMap (Csv.Decode.field "kilometerPerLiter"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "hubraum"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "pS"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "sitze"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "preisEuro"(String.toFloat >> Result.fromMaybe "error parsing string"))
         )
+--- Update function deklarieren ---
+type Msg
+    = GotText (Result Http.Error String)
+    | Change1 (Cars -> Float, String)
+    | Change2 (Cars -> Float, String)
+    | Change3 (Cars -> Float, String)
+    | Change4 (Cars -> Float, String)
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        GotText result ->
+            case result of
+                Ok fullText ->
+                    ( Success <| { data = CarsListe [ fullText ], ersteFunktion = .alc, zweiteFunktion = .temperatur, dritteFunktion = .suesse, vierteFunktion = .saeurengehalt , ersterName = "Alkohol", zweiterName = "Temperatur", dritterName = "Süße", vierterName = "Säuregehalt"}, Cmd.none )
+
+
 
 
 
