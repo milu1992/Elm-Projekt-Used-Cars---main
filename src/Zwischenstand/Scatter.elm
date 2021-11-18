@@ -69,10 +69,10 @@ decodeStockDay =
         )
 
 
-umwandeln : List (String, Maybe Float, Maybe Float) -> List (String, String, String)
-umwandeln ganzerText =
+transform : List (String, Maybe Float, Maybe Float) -> List (String, String, String)
+transform ganzerText =
     List.map (\( a, b, c ) -> ( a, b |> Maybe.map String.fromFloat |> Maybe.withDefault "Kein Wert vorhanden", c |> Maybe.map String.fromFloat |> Maybe.withDefault "Kein Wert vorhanden")) ganzerText
 
-umwandeln2 : List (String, Maybe Float, Maybe Float) -> List (String, Float, Float)
-umwandeln2 ganzerText =
+transform2 : List (String, Maybe Float, Maybe Float) -> List (String, Float, Float)
+tarnsform2 ganzerText =
     List.map(\(a, b, c) -> (a, b |> Maybe.withDefault 0.0, c |> Maybe.withDefault 0.0)) ganzerText
