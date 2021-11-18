@@ -372,7 +372,21 @@ view model =
                                     , Html.button [onClick (Change3 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]    
                             ] 
-                            
+                            , ul[][
+                                li[][
+                                  Html.text <| "Suchen eine Eigenschaft für die vierte Spalte aus"
+                                    , Html.button [onClick (Change4 (.jahr, "Baujahr"))][Html.text "Baujahr"]
+                                    , Html.button [onClick (Change4 (.kilometerstand, "Kilometerstand"))][Html.text "Kilometerstand"]
+                                    , Html.button [onClick (Change4 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
+                                    , Html.button [onClick (Change4 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
+                                    , Html.button [onClick (Change4 (.sitze, "Sitze"))][Html.text "Sitze"]
+                                    , Html.button [onClick (Change4 (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
+                                    , Html.button [onClick (Change4 (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
+                                    , Html.button [onClick (Change4 (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
+                                    , Html.button [onClick (Change4 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
+                                    , Html.button [onClick (Change4 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
+                                ]    
+                            ] 
 
 
 
