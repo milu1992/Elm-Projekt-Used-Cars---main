@@ -34,11 +34,11 @@ type Model
   = Failure
   | Loading
   | Success 
-    { data : List Cars
-    , ersteFunktion : Cars -> Float
-    , zweiteFunktion : Cars -> Float
-    , dritteFunktion : Cars -> Float
-    , vierteFunktion : Cars -> Float
+    { data : List cars
+    , ersteFunktion : cars -> Float
+    , zweiteFunktion : cars -> Float
+    , dritteFunktion : cars -> Float
+    , vierteFunktion : cars -> Float
     , ersterName : String
     , zweiterName : String
     , dritterName : String
@@ -67,14 +67,14 @@ liste : List String
 liste =
     ["CarCleanFinal.csv.csv"]
 
-csvStringToValue : String -> List Cars
+csvStringToValue : String -> List cars
 csvStringToValue csvRaw =
     Csv.parse csvRaw
         |> Csv.Decode.decodeCsv decodeCars
         |> Result.toMaybe
         |> Maybe.withDefault []
 
-type alias Cars =
+type alias cars =
     { name : String
     , jahr  : Float
     , kilometerstand :Float
@@ -92,7 +92,7 @@ type alias Cars =
 
 decodeCars : Csv.Decode.Decoder (Cars -> a) a
 decodeCars =
-    Csv.Decode.map Cars
+    Csv.Decode.map cars
         (Csv.Decode.field "name" Ok
             |> Csv.Decode.andMap (Csv.Decode.field "jahr"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "kilometerstand"(String.toFloat >> Result.fromMaybe "error parsing string"))
@@ -109,10 +109,10 @@ decodeCars =
 --- Update function deklarieren ---
 type Msg
     = GotText (Result Http.Error String)
-    | Change1 (Cars -> Float, String)
-    | Change2 (Cars -> Float, String)
-    | Change3 (Cars -> Float, String)
-    | Change4 (Cars -> Float, String)
+    | Change1 (cars -> Float, String)
+    | Change2 (cars -> Float, String)
+    | Change3 (cars -> Float, String)
+    | Change4 (cars -> Float, String)
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -120,7 +120,7 @@ update msg model =
         GotText result ->
             case result of
                 Ok fullText ->
-                    ( Success <| { data = CarsListe [ fullText ], ersteFunktion = .jahr, zweiteFunktion = .kilometerstand, dritteFunktion = .pS, vierteFunktion = .preisEuro , ersterName = "Baujahr", zweiterName = "Kilometerstand", dritterName = "Pferdestärken", vierterName = "PreisinEuro"}, Cmd.none )
+                    ( Success <| { data = carsListe [ fullText ], ersteFunktion = .jahr, zweiteFunktion = .kilometerstand, dritteFunktion = .pS, vierteFunktion = .preisEuro , ersterName = "Baujahr", zweiterName = "Kilometerstand", dritterName = "Pferdestärken", vierterName = "PreisinEuro"}, Cmd.none )
 
                       Err _ ->
                     ( model, Cmd.none )
@@ -150,7 +150,14 @@ update msg model =
                 Success m ->
                     ( Success <| { data = m.data, ersteFunktion = m.ersteFunktion, zweiteFunktion = m.zweiteFunktion, dritteFunktion = m.dritteFunktion, vierteFunktion = c , ersterName = m.ersterName, zweiterName = m.zweiterName, dritterName = m.dritterName, vierterName = a}, Cmd.none )
 
+        _ ->
+                    ( model, Cmd.none )
 
+carsListe :List String -> List cars
+CarsListe liste1 =
+    List.map(\t -> csvString_to_data t) liste1
+        |> List.concat
+        
 
 
 
