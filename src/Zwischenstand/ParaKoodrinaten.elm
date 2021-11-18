@@ -124,11 +124,33 @@ update msg model =
 
                       Err _ ->
                     ( model, Cmd.none )
-        Ändere1 (x, a) ->
+       Change1 (x, a) ->
             case model of
                 Success m ->
                     ( Success <| { data = m.data, ersteFunktion = x, zweiteFunktion = m.zweiteFunktion, dritteFunktion = m.dritteFunktion, vierteFunktion = m.vierteFunktion , ersterName = a, zweiterName = m.zweiterName, dritterName = m.dritterName, vierterName = m.vierterName}, Cmd.none )
-                    
+
+                     _ ->
+                    ( model, Cmd.none )
+        Change2 (y, a) ->
+            case model of
+                Success m ->
+                    ( Success <| { data = m.data, ersteFunktion = m.ersteFunktion, zweiteFunktion = y, dritteFunktion = m.dritteFunktion, vierteFunktion = m.vierteFunktion , ersterName = m.ersterName, zweiterName = a, dritterName = m.dritterName, vierterName = m.vierterName}, Cmd.none )
+
+                _ ->
+                ( model, Cmd.none )
+        Chamge3 (z, a) ->
+            case model of
+                Success m ->
+                    ( Success <| { data = m.data, ersteFunktion = m.ersteFunktion, zweiteFunktion = m.zweiteFunktion, dritteFunktion = z, vierteFunktion = m.vierteFunktion , ersterName = m.ersterName, zweiterName = m.zweiterName, dritterName = a, vierterName = m.vierterName}, Cmd.none )
+
+        _ ->
+                    ( model, Cmd.none )
+        Change4 (c, a) ->
+            case model of
+                Success m ->
+                    ( Success <| { data = m.data, ersteFunktion = m.ersteFunktion, zweiteFunktion = m.zweiteFunktion, dritteFunktion = m.dritteFunktion, vierteFunktion = c , ersterName = m.ersterName, zweiterName = m.zweiterName, dritterName = m.dritterName, vierterName = a}, Cmd.none )
+
+
 
 
 
