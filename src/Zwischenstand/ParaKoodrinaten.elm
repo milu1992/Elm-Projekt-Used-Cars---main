@@ -300,6 +300,12 @@ parallelCoodinatesPlot w ar model =
                         )
                )
 
+view : Model -> Html Msg
+view model =
+    case model of
+        Failure ->
+            Html.text "Gebrauchtwagen konnten leider nicht geöffnet werden."
+
 
 
 
