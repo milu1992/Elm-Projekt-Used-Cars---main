@@ -308,7 +308,22 @@ view model =
 
             Loading ->
             Html.text "Gebrauchtwagen werden geladen"
-            
+
+            Success l ->
+                    let
+                        multiDimDaten : List cars -> (cars -> Float) -> (cars -> Float) -> (cars -> Float) -> (cars -> Float) -> (cars -> String) -> String -> String -> String -> String-> MultiDimData
+                        multiDimDaten listecars a b c d e f g h i=
+                         MultiDimData [f, g, h, i]
+                            [ List.map
+                                (\x ->
+                                    [(a x), (b x), (c x), (d x)]
+                                        |> MultiDimPoint (e x)
+                                )
+                                listecars
+                            ]
+
+                        plotDaten = 
+                            multiDimDaten l.data l.ersteFunktion l.zweiteFunktion l.dritteFunktion l.vierteFunktion .name l.ersterName l.zweiterName l.dritterName l.vierterName   
 
 
 
