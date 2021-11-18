@@ -323,7 +323,39 @@ view model =
                             ]
 
                         plotDaten = 
-                            multiDimDaten l.data l.ersteFunktion l.zweiteFunktion l.dritteFunktion l.vierteFunktion .name l.ersterName l.zweiterName l.dritterName l.vierterName   
+                            multiDimDaten l.data l.ersteFunktion l.zweiteFunktion l.dritteFunktion l.vierteFunktion .name l.ersterName l.zweiterName l.dritterName l.vierterName  
+                             in
+                    Html.div []
+                        [
+                            ul[][
+                                li[][
+                                    Html.text <| "Suchen eine Eigenschaft für die erste Spalte aus"
+                                    , Html.button [onClick (Change1 (.jahr, "Baujahr"))][Html.text "Baujahr"]
+                                    , Html.button [onClick (Change1 (.kilometerstand, "Kilometerstand"))][Html.text "Kilometerstand"]
+                                    , Html.button [onClick (Change1 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
+                                    , Html.button [onClick (Change1 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
+                                    , Html.button [onClick (Change1 (.sitze, "Sitze"))][Html.text "Sitze"]
+                                    , Html.button [onClick (Change1 (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
+                                    , Html.button [onClick (Change1 (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
+                                    , Html.button [onClick (Change1 (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
+                                    , Html.button [onClick (Change1 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
+                                    , Html.button [onClick (Change1 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
+                                ]                           
+                            ]
+                            , ul[][
+                                li[][
+                                  Html.text <| "Suchen eine Eigenschaft für die erste Spalte aus"
+                                    , Html.button [onClick (Change2 (.jahr, "Baujahr"))][Html.text "Baujahr"]
+                                    , Html.button [onClick (Change2 (.kilometerstand, "Kilometerstand"))][Html.text "Kilometerstand"]
+                                    , Html.button [onClick (Change2 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
+                                    , Html.button [onClick (Change2 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
+                                    , Html.button [onClick (Change2 (.sitze, "Sitze"))][Html.text "Sitze"]
+                                    , Html.button [onClick (Change2 (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
+                                    , Html.button [onClick (Change2 (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
+                                    , Html.button [onClick (Change2 (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
+                                    , Html.button [onClick (Change2 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
+                                    , Html.button [onClick (Change2 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
+                            ] 
 
 
 
