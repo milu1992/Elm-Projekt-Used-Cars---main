@@ -157,7 +157,150 @@ carsListe :List String -> List cars
 CarsListe liste1 =
     List.map(\t -> csvString_to_data t) liste1
         |> List.concat
-        
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
+
+padding : Float
+padding =
+    60
+
+
+radius : Float
+radius =
+    5.0
+
+
+tickCount_ : Int
+tickCount_ =
+    8
+
+
+defaultExtent : ( number, number1 )
+defaultExtent =
+    ( 0, 100 )
+
+
+wideExtent : List Float -> ( Float, Float )
+wideExtent values =
+    let
+        closeExtent =
+            Statistics.extent values
+                |> Maybe.withDefault defaultExtent
+
+        extension =
+            (Tuple.second closeExtent - Tuple.first closeExtent) / toFloat (2 * tickCount_)
+    in
+    ( Tuple.first closeExtent - extension |> max 0
+    , Tuple.second closeExtent + extension
+    )
+
+type alias MultiDimPoint =
+    { pointName : String, value : List Float }
+
+
+type alias MultiDimData =
+    { dimDescription : List String
+    , data : List (List MultiDimPoint)
+    }
+
+
+
+parallelCoodinatesPlot : Float -> Float -> MultiDimData -> Svg msg
+parallelCoodinatesPlot w ar model =
+    let
+        h : Float
+        h =
+            w / ar
+
+        listTransformieren : List (List Float)
+        listTransformieren =
+            model.data
+                |> List.concat
+                |> List.map .value
+                |> List.Extra.transpose
+
+        listWideExtent : List ( Float, Float )
+        listWideExtent =
+            listTransformieren |> List.map wideExtent
+
+        listScale =
+            List.map (Scale.linear ( h, 0 )) listWideExtent
+
+        listAxis =
+            List.map (Axis.left [ Axis.tickCount tickCount_ ]) listScale
+
+        xScale =
+            Scale.linear ( 0, w ) ( 1, List.length model.dimDescription |> toFloat )
+    in
+    svg
+        [ viewBox 0 0 (w + 2 * padding) (h + 2 * padding)
+        , TypedSvg.Attributes.width <| TypedSvg.Types.Percent 90
+        , TypedSvg.Attributes.height <| TypedSvg.Types.Percent 90
+        ]
+    <|
+        [ TypedSvg.style []
+            []
+        , g [ TypedSvg.Attributes.class [ "parallelAxis" ] ]
+            [ g [ transform [ Translate (padding - 1) padding ] ] <|
+                List.indexedMap
+                    (\i axis ->
+                        g
+                            [ transform
+                                [ Translate (Scale.convert xScale (toFloat i + 1)) 0
+                                ]
+                            ]
+                            [ axis ]
+                    )
+                    listAxis
+            , g [ transform [ Translate (padding - 1) 0 ] ] <|
+                List.indexedMap
+                    (\i desc ->
+                        text_
+                            [ fontFamily [ "sans-serif" ]
+                            , fontSize (Px 10)
+                            , x <| Scale.convert xScale (toFloat i + 1)
+                            , y <| padding * 7 / 8
+                            , textAnchor AnchorMiddle
+                            ]
+                            [ TypedSvg.Core.text desc ]
+                    )
+                    model.dimDescription
+            ]
+        ]
+            ++ (let
+                    drawPoint p =
+                        let
+                            linePath : Path.Path
+                            linePath =
+                                List.map3
+                                    (\desc s px ->
+                                        Just
+                                            ( Scale.convert xScale <| toFloat desc
+                                            , Scale.convert s px
+                                            )
+                                    )
+                                    (List.range 1 (List.length model.dimDescription))
+                                    listScale
+                                    p
+                                    |> Shape.line Shape.linearCurve
+                        in
+                        Path.element linePath
+                            [ stroke <| Paint <| Color.rgba 0 0 0 0.8
+                            , strokeWidth <| Px 0.5
+                            , fill PaintNone
+                            ]
+                in
+                model.data
+                    |> List.map
+                        (\dataset ->
+                            g [ transform [ Translate (padding - 1) padding ] ]
+                                (List.map (.value >> drawPoint) dataset)
+                        )
+               )
+
+
 
 
 
