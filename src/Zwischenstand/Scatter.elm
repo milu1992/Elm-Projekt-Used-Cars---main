@@ -287,3 +287,26 @@ pointName : (String, Float, Float) -> Point
 pointName (x, y, z) =
     Point x y z
 
+view : Model -> Html Msg
+view model =
+    case model of
+        Failure ->
+            Html.text "Ich konnte Ihre Weine nicht öffnen."
+
+        Loading ->
+            Html.text "Weine werden geöffnet..."
+
+        Success l ->
+            let
+                weine =
+                    filterCars <| carsList l
+
+            in
+            Html.div []
+                [
+                    scatterplot weine
+                ]
+carsList : List String -> List(String, Float, Float) 
+carsList liste1 =
+ List.map (\fulltext ->  transform2 <| csvString_to_data fulltext ) liste1
+    |> List.concat
