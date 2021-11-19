@@ -278,3 +278,8 @@ xAxis values =
 yAxis : List Float -> Svg msg
 yAxis values =
     Axis.left [ Axis.tickCount tickCount ] (yScale values)
+
+filterCars : List (String, Float, Float) -> XyData
+filterCars my_Cars =
+    XyData "Preis" "Jahr" (List.map pointName my_Cars)
+
