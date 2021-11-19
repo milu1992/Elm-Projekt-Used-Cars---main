@@ -98,3 +98,31 @@ type Msg
     = GotText (Result Http.Error String)
     | ChangeX (Cars -> Float, String)
     | ChangeY (Cars -> Float, String)
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        GotText result ->
+            case result of
+                Ok fullText ->
+                    ( Success <| { data = CarsListe [ fullText ], xAAFunktion = .jahr, yAAFunktion = .preis , xName = "Baujahr", yName = "Preis"}, Cmd.none )
+
+                Err _ ->
+                    ( model, Cmd.none )
+        ChangeX (x, a) ->
+            case model of
+                Success m ->
+                    ( Success <| { data = m.data, xAAFunktion = x, yAAFunktion = m.yAAFunktion, xName = a, yName = m.yName }, Cmd.none )
+
+                _ ->
+                    ( model, Cmd.none )
+        ChangeY (y, a) ->
+            case model of
+                Success m ->
+                    ( Success <| { data = m.data, xAAFunktion = m.xAAFunktion, yAAFunktion = y, xName = m.xName, yName = a }, Cmd.none )
+
+                _ ->
+                    ( model, Cmd.none )
+        
+        
