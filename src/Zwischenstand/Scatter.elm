@@ -234,3 +234,7 @@ type alias XyData =
     , yDescription : String
     , data : List Point
     }
+
+xScale : List Float -> ContinuousScale Float
+xScale values =
+    Scale.linear ( 0, w - 2 * padding ) ( wideExtent values )
