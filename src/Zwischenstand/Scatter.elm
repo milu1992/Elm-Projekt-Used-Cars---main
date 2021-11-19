@@ -133,3 +133,37 @@ tickCount : Int
 tickCount =
     5
 
+defaultExtent : ( number, number1 )
+defaultExtent =
+    ( 0, 100 )
+
+
+scatterplot : XyData -> Svg msg
+scatterplot model =
+    let
+
+        xValues : List Float
+        xValues =
+            List.map .x model.data
+
+        yValues : List Float
+        yValues =
+            List.map .y model.data
+
+        xScaleLocal : ContinuousScale Float
+        xScaleLocal =
+            xScale xValues
+
+        yScaleLocal : ContinuousScale Float
+        yScaleLocal =
+            yScale yValues
+
+        half : ( Float, Float ) -> Float
+        half t =
+            (Tuple.second t - Tuple.first t) / 2
+
+        labelPositions : { x : Float, y : Float }
+        labelPositions =
+            { x = wideExtent xValues |> half
+            , y = wideExtent yValues |> Tuple.second
+            }
