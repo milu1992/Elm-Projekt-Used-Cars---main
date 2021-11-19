@@ -283,3 +283,7 @@ filterCars : List (String, Float, Float) -> XyData
 filterCars my_Cars =
     XyData "Preis" "Jahr" (List.map pointName my_Cars)
 
+pointName : (String, Float, Float) -> Point
+pointName (x, y, z) =
+    Point x y z
+
