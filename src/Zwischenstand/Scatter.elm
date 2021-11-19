@@ -225,3 +225,6 @@ point scaleX scaleY xyPoint =
             circle [cx 0, cy 0, r 5] []
             , text_ [x 10, y -20, textAnchor AnchorMiddle] [Html.text xyPoint.pointName]
         ]
+
+type alias Point =
+    { pointName : String, x : Float, y : Float }
