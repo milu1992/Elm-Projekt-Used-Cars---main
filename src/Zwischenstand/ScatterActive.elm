@@ -44,9 +44,20 @@ init _ =
         |> List.map
             (\datensatz ->
                 Http.get
-                    { url = "https://raw.githubusercontent.com/milu1992/Elm-Projekt-Used-Cars---main/master/Data/Quelldaten/train.csv?token=AWFPZWZWDL3236OQAFZV4FDBSY7K4/" ++ datensatz
+                    { url = "https://github.com/milu1992/Elm-Projekt-Used-Cars---main/tree/master/Data/Aufbereitete%20Daten" ++ datensatz
                     , expect = Http.expectString GotText
                     }
             )
         |> Cmd.batch
     )
+
+liste : List String
+liste =
+    [ "CarCleanFinal.csv.csv"]
+
+csvString_to_data : String -> List cars
+csvString_to_data csvRaw =
+    Csv.parse csvRaw
+        |> Csv.Decode.decodeCsv decodecars
+        |> Result.toMaybe
+        |> Maybe.withDefault []
