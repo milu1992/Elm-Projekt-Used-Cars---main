@@ -18,10 +18,13 @@ import TypedSvg.Types as ST exposing (AnchorAlignment(..), Length(..), Paint(..)
 type alias Model =
     { tree : TreeDiagram.Tree String, errorMsg : String }
 
+type Msg
+    = GotFlare (Result Http.Error (TreeDiagram.Tree String))
+
 init : () -> ( Model, Cmd Msg )
 init () =
     ( { tree = TreeDiagram.node "" [], errorMsg = "Loading ..." }
-    , Http.get { url = "http://github.com/milu1992/Elm-Projekt-Used-Cars---main/blob/master/Data/LocationCar.json", expect = Http.expectJson GotFlare treeDecoder }
+    , Http.get { url = "https://raw.githubusercontent.com/milu1992/Elm-Projekt-Used-Cars---main/master/Data/Aufbereitete%20Daten/LocationCar.json", expect = Http.expectJson GotFlare treeDecoder }
     )
 
 treeDecoder : Json.Decode.Decoder (TreeDiagram.Tree String)

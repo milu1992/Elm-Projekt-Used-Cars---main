@@ -57,7 +57,7 @@ getData x =
         |> List.map
             (\datensatz ->
                 Http.get
-                    { url = "https://github.com/milu1992/Elm-Projekt-Used-Cars---main/blob/master/Data/Aufbereitete%20Daten/CarCleanFinal.csv.csv/" ++ datensatz
+                    { url = "https://raw.githubusercontent.com/milu1992/Elm-Projekt-Used-Cars---main/master/Data/Aufbereitete%20Daten/" ++ datensatz
                     , expect = Http.expectString x
                     }
             )
@@ -81,9 +81,6 @@ type alias Cars =
     , pS : Float
     , preisEuro : Float   
     , sitze : Float
-    , kraftstoff : String
-    , schaltung : String
-    , besitzer : String
     , kilometerPerLiter : Float
     , hubraum : Float
     
@@ -99,9 +96,6 @@ decodeCars =
             |> Csv.Decode.andMap (Csv.Decode.field "pS"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "preisEuro"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "sitze"(String.toFloat >> Result.fromMaybe "error parsing string"))
-            |> Csv.Decode.andMap (Csv.Decode.field "kraftstoff" ok)
-            |> Csv.Decode.andMap (Csv.Decode.field "schaltung" ok)
-            |> Csv.Decode.andMap (Csv.Decode.field "besitzer" ok)
             |> Csv.Decode.andMap (Csv.Decode.field "kilometerPerLiter"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "hubraum"(String.toFloat >> Result.fromMaybe "error parsing string"))
         )
@@ -114,22 +108,22 @@ type Msg
     | Change3 (Cars -> Float, String)
     | Change4 (Cars -> Float, String)
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg -> Model -> ( Model, Cmd Msg ) 
 update msg model =
     case msg of
         GotText result ->
             case result of
                 Ok fullText ->
-                    ( Success <| { data = CarsListe [ fullText ], ersteFunktion = .jahr, zweiteFunktion = .kilometerstand, dritteFunktion = .pS, vierteFunktion = .preisEuro , ersterName = "Baujahr", zweiterName = "Kilometerstand", dritterName = "Pferdestärken", vierterName = "PreisinEuro"}, Cmd.none )
+                    ( Success <| { data = carsListe [ fullText ], ersteFunktion = .jahr, zweiteFunktion = .kilometerstand, dritteFunktion = .pS, vierteFunktion = .preisEuro , ersterName = "Baujahr", zweiterName = "Kilometerstand", dritterName = "Pferdestärken", vierterName = "PreisinEuro"}, Cmd.none )
 
-                      Err _ ->
+                Err _ ->
                     ( model, Cmd.none )
-       Change1 (x, a) ->
+        Change1 (x, a) ->
             case model of
                 Success m ->
                     ( Success <| { data = m.data, ersteFunktion = x, zweiteFunktion = m.zweiteFunktion, dritteFunktion = m.dritteFunktion, vierteFunktion = m.vierteFunktion , ersterName = a, zweiterName = m.zweiterName, dritterName = m.dritterName, vierterName = m.vierterName}, Cmd.none )
 
-                     _ ->
+                _ -> 
                     ( model, Cmd.none )
         Change2 (y, a) ->
             case model of
@@ -138,24 +132,24 @@ update msg model =
 
                 _ ->
                 ( model, Cmd.none )
-        Chamge3 (z, a) ->
+        Change3 (z, a) ->
             case model of
                 Success m ->
                     ( Success <| { data = m.data, ersteFunktion = m.ersteFunktion, zweiteFunktion = m.zweiteFunktion, dritteFunktion = z, vierteFunktion = m.vierteFunktion , ersterName = m.ersterName, zweiterName = m.zweiterName, dritterName = a, vierterName = m.vierterName}, Cmd.none )
 
-        _ ->
+                _ ->
                     ( model, Cmd.none )
         Change4 (c, a) ->
             case model of
                 Success m ->
                     ( Success <| { data = m.data, ersteFunktion = m.ersteFunktion, zweiteFunktion = m.zweiteFunktion, dritteFunktion = m.dritteFunktion, vierteFunktion = c , ersterName = m.ersterName, zweiterName = m.zweiterName, dritterName = m.dritterName, vierterName = a}, Cmd.none )
 
-        _ ->
+                _ ->
                     ( model, Cmd.none )
 
-CarsListe :List String -> List Cars
-CarsListe liste1 =
-    List.map(\t -> csvString_to_data t) liste1
+carsListe :List String -> List Cars
+carsListe liste1 =
+    List.map(\t -> csvStringToValue t) liste1
         |> List.concat
 
 subscriptions : Model -> Sub Msg
@@ -301,15 +295,15 @@ parallelCoodinatesPlot w ar model =
                )
 
 view : Model -> Html Msg
-view model =
+view model = 
     case model of
         Failure ->
             Html.text "Gebrauchtwagen konnten leider nicht geöffnet werden."
 
-            Loading ->
-            Html.text "Gebrauchtwagen werden geladen"
+        Loading ->
+            Html.text "Gebrauchtwagen werden geladen..."
 
-            Success l ->
+        Success l ->
                     let
                         multiDimDaten : List Cars -> (Cars -> Float) -> (Cars -> Float) -> (Cars -> Float) -> (Cars -> Float) -> (Cars -> String) -> String -> String -> String -> String-> MultiDimData
                         multiDimDaten listeCars a b c d e f g h i=
@@ -324,7 +318,7 @@ view model =
 
                         plotDaten = 
                             multiDimDaten l.data l.ersteFunktion l.zweiteFunktion l.dritteFunktion l.vierteFunktion .name l.ersterName l.zweiterName l.dritterName l.vierterName  
-                             in
+                    in
                     Html.div []
                         [
                             ul[][
@@ -335,10 +329,7 @@ view model =
                                     , Html.button [onClick (Change1 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                                     , Html.button [onClick (Change1 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                                     , Html.button [onClick (Change1 (.sitze, "Sitze"))][Html.text "Sitze"]
-                                    , Html.button [onClick (Change1 (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
-                                    , Html.button [onClick (Change1 (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
-                                    , Html.button [onClick (Change1 (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
-                                    , Html.button [onClick (Change1 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
+                                    , Html.button [onClick (Change1 (.kilometerPerLiter, "KilometerPerLiterr"))][Html.text "Mililiter"]
                                     , Html.button [onClick (Change1 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]                           
                             ]
@@ -350,9 +341,6 @@ view model =
                                     , Html.button [onClick (Change2 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                                     , Html.button [onClick (Change2 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                                     , Html.button [onClick (Change2 (.sitze, "Sitze"))][Html.text "Sitze"]
-                                    , Html.button [onClick (Change2 (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
-                                    , Html.button [onClick (Change2 (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
-                                    , Html.button [onClick (Change2 (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
                                     , Html.button [onClick (Change2 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
                                     , Html.button [onClick (Change2 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]    
@@ -365,9 +353,6 @@ view model =
                                     , Html.button [onClick (Change3 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                                     , Html.button [onClick (Change3 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                                     , Html.button [onClick (Change3 (.sitze, "Sitze"))][Html.text "Sitze"]
-                                    , Html.button [onClick (Change3 (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
-                                    , Html.button [onClick (Change3 (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
-                                    , Html.button [onClick (Change3 (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
                                     , Html.button [onClick (Change3 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
                                     , Html.button [onClick (Change3 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]    
@@ -380,9 +365,6 @@ view model =
                                     , Html.button [onClick (Change4 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                                     , Html.button [onClick (Change4 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                                     , Html.button [onClick (Change4 (.sitze, "Sitze"))][Html.text "Sitze"]
-                                    , Html.button [onClick (Change4 (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
-                                    , Html.button [onClick (Change4 (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
-                                    , Html.button [onClick (Change4 (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
                                     , Html.button [onClick (Change4 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
                                     , Html.button [onClick (Change4 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]    
