@@ -37,3 +37,16 @@ type Model
     , yName : String
     }
 
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( Loading
+    , liste
+        |> List.map
+            (\datensatz ->
+                Http.get
+                    { url = "https://raw.githubusercontent.com/milu1992/Elm-Projekt-Used-Cars---main/master/Data/Quelldaten/train.csv?token=AWFPZWZWDL3236OQAFZV4FDBSY7K4/" ++ datensatz
+                    , expect = Http.expectString GotText
+                    }
+            )
+        |> Cmd.batch
+    )
