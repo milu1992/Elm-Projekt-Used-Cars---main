@@ -124,5 +124,10 @@ update msg model =
 
                 _ ->
                     ( model, Cmd.none )
+
+CarsListe :List String -> List Cars
+CarsListe liste1 =
+    List.map(\t -> csvString_to_data t) liste1
+        |> List.concat
         
-        
+
