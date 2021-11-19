@@ -129,5 +129,40 @@ CarsListe :List String -> List Cars
 CarsListe liste1 =
     List.map(\t -> csvString_to_data t) liste1
         |> List.concat
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
+
+w : Float
+w =
+    900
+
+
+h : Float
+h =
+    450
+
+
+padding : Float
+padding =
+    60
+
+
+radius : Float
+radius =
+    5.0
+
+
+tickCount : Int
+tickCount =
+    5
+
+
+defaultExtent : ( number, number1 )
+defaultExtent =
+    ( 0, 100 )
+
+
         
 
