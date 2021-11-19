@@ -163,6 +163,73 @@ defaultExtent : ( number, number1 )
 defaultExtent =
     ( 0, 100 )
 
+scatterplot : XyData -> Svg msg
+scatterplot model =
+    let
+
+        xValues : List Float
+        xValues =
+            List.map .x model.data
+
+        yValues : List Float
+        yValues =
+            List.map .y model.data
+
+        xScaleLocal : ContinuousScale Float
+        xScaleLocal =
+            xScale xValues
+
+        yScaleLocal : ContinuousScale Float
+        yScaleLocal =
+            yScale yValues
+
+        half : ( Float, Float ) -> Float
+        half t =
+            (Tuple.second t - Tuple.first t) / 2
+
+        labelPositions : { x : Float, y : Float }
+        labelPositions =
+            { x = wideExtent xValues |> half
+            , y = wideExtent yValues |> Tuple.second
+            }
+    in
+    svg [ viewBox 0 0 w h, TypedSvg.Attributes.width <| TypedSvg.Types.Percent 100, TypedSvg.Attributes.height <| TypedSvg.Types.Percent 100 ]
+        [ style [] [ TypedSvg.Core.text """
+            .point circle { stroke: rgba(0, 0, 0,0.4); fill: rgba(255, 255, 255,0.3); }
+            .point text { display: none; }
+            .point:hover circle { stroke: rgba(0, 0, 0,1.0); fill: rgb(118, 214, 78); }
+            .point:hover text { display: inline; }
+          """ ]
+        , g [ transform [ Translate 60 390 ] ]
+            [ xAxis xValues
+            , text_
+                [ x (Scale.convert xScaleLocal labelPositions.x)
+                , y 35
+
+                -- , fontFamily [ "Helvetica", "sans-serif" ]
+                , fontSize (px 20)
+
+                --, fontWeight FontWeightBold
+                ]
+                [ TypedSvg.Core.text model.xDescription ]
+            ]
+        , g [ transform [ Translate 60 60 ] ]
+            [ yAxis yValues
+            , text_
+                [ x -30
+                , y -30
+
+                -- , fontFamily [ "Helvetica", "sans-serif" ]
+                , fontSize (px 20)
+
+                --, fontWeight FontWeightBold
+                ]
+                [ TypedSvg.Core.text model.yDescription ]
+            ]
+        , g [ transform [ Translate padding padding ] ]
+            (List.map (point xScaleLocal yScaleLocal) model.data)
+        ]
+        
 
         
 
