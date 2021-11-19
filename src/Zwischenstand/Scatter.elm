@@ -167,3 +167,61 @@ scatterplot model =
             { x = wideExtent xValues |> half
             , y = wideExtent yValues |> Tuple.second
             }
+    in
+    svg [ viewBox 0 0 w h, TypedSvg.Attributes.width <| TypedSvg.Types.Percent 100, TypedSvg.Attributes.height <| TypedSvg.Types.Percent 100 ]
+        [ style [] [ TypedSvg.Core.text """
+            .point circle { stroke: rgba(0, 0, 0,0.4); fill: rgba(255, 255, 255,0.3); }
+            .point text { display: none; }
+            .point:hover circle { stroke: rgba(0, 0, 0,1.0); fill: rgb(118, 214, 78); }
+            .point:hover text { display: inline; }
+          """ ]
+        , g [ transform [ Translate 60 390 ] ]
+            [ xAxis xValues
+            , text_
+                [ x (Scale.convert xScaleLocal labelPositions.x)
+                , y 35
+
+                -- , fontFamily [ "Helvetica", "sans-serif" ]
+                , fontSize (px 20)
+
+                --, fontWeight FontWeightBold
+                ]
+                [ TypedSvg.Core.text "Preis" ]
+            ]
+        , g [ transform [ Translate 60 60 ] ]
+            [ yAxis yValues
+            , text_
+                [ x -30
+                , y -30
+
+                -- , fontFamily [ "Helvetica", "sans-serif" ]
+                , fontSize (px 20)
+
+                --, fontWeight FontWeightBold
+                ]
+                [ TypedSvg.Core.text "Jahr" ]
+            ]
+        , g [ transform [ Translate padding padding ] ]
+            (List.map (point xScaleLocal yScaleLocal) model.data)
+        ]
+        
+
+point : ContinuousScale Float -> ContinuousScale Float -> Point -> Svg msg
+point scaleX scaleY xyPoint =
+    g
+        [
+            class["point"]
+            ,fontSize <| Px 15.0
+            ,fontFamily ["serif"]
+            ,transform
+                [
+                    Translate
+                    (Scale.convert scaleX xyPoint.x)
+                    (Scale.convert scaleY xyPoint.y)
+                ]
+        ]
+
+        [
+            circle [cx 0, cy 0, r 5] []
+            , text_ [x 10, y -20, textAnchor AnchorMiddle] [Html.text xyPoint.pointName]
+        ]
