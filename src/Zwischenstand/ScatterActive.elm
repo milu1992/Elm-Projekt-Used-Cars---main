@@ -290,7 +290,10 @@ filterCars : List Cars -> (Cars -> String) -> (Cars -> Float) -> (Cars -> Float)
 filterCars Carsliste a b c x y =
     XyData x y (List.map (\n -> pointName n a b c x y) Carsliste)
 
-
+pointName : Cars -> (Cars -> String) -> (Cars -> Float) -> (Cars -> Float) -> String -> String -> Point
+pointName cars u v x y z =
+    Point (u cars ++ ", " ++ y ++ ": " ++ String.fromFloat (v cars) ++ "," ++ z ++ ": " ++ String.fromFloat (x cars)) (v cars) (x cars)
+    
     
      
         
