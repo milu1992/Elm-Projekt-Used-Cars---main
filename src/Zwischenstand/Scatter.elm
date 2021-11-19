@@ -270,4 +270,7 @@ wideExtent values =
           
     in
      result2
-    
+
+xAxis : List Float -> Svg msg
+xAxis values =
+    Axis.bottom [ Axis.tickCount tickCount ] (xScale values)
