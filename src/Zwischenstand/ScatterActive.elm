@@ -341,5 +341,5 @@ view model =
                             , Html.button [onClick (ChangeY (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                         ]
                     ] 
-                    ,   scatterplot weine
+                    ,   scatterplot cars
                 ]
