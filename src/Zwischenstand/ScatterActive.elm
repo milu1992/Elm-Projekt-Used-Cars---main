@@ -17,3 +17,11 @@ import TypedSvg.Attributes exposing (name)
 import Html exposing (ul)
 import Html exposing (li)
 import Html.Events exposing (onClick)
+
+main =
+  Browser.element
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }
