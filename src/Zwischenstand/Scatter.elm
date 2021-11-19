@@ -249,3 +249,25 @@ addieren (min, max) shift =
         ( 0, max + shift)
     else 
         (min - shift, max + shift)
+
+wideExtent : List Float -> ( Float, Float )
+wideExtent values = 
+    let
+        result = 
+            Maybe.withDefault (0, 0)
+            (Statistics.extent values)
+        
+        max =          
+            Maybe.withDefault (0)
+            (List.maximum values)
+            
+        result1 = 
+            addieren result (toFloat(tickCount)*max/50)
+        
+        result2 = 
+            addieren result1 (0.0)
+        
+          
+    in
+     result2
+    
