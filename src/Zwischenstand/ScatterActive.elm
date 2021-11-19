@@ -25,3 +25,15 @@ main =
         , subscriptions = subscriptions
         , view = view
         }
+
+type Model
+  = Failure
+  | Loading
+  | Success 
+    { data : List cars
+    , xAAFunktion : cars -> Float
+    , yAAFunktion : cars -> Float
+    , xName : String
+    , yName : String
+    }
+
