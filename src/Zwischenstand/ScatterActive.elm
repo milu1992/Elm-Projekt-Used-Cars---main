@@ -285,6 +285,12 @@ xAxis values =
 yAxis : List Float -> Svg msg
 yAxis values =
     Axis.left [ Axis.tickCount tickCount ] (yScale values)
+
+filterCars : List Cars -> (Cars -> String) -> (Cars -> Float) -> (Cars -> Float) -> String -> String -> XyData
+filterCars Carsliste a b c x y =
+    XyData x y (List.map (\n -> pointName n a b c x y) Carsliste)
+
+
     
      
         
