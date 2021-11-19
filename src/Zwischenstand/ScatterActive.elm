@@ -17,6 +17,7 @@ import TypedSvg.Attributes exposing (name)
 import Html exposing (ul)
 import Html exposing (li)
 import Html.Events exposing (onClick)
+import Zwischenstand.ParaKoodrinaten exposing (cars)
 
 main =
   Browser.element
@@ -93,3 +94,7 @@ decodeCars =
             |> Csv.Decode.andMap (Csv.Decode.field "kilometerPerLiter"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "hubraum"(String.toFloat >> Result.fromMaybe "error parsing string"))
         )
+type Msg
+    = GotText (Result Http.Error String)
+    | ChangeX (Cars -> Float, String)
+    | ChangeY (Cars -> Float, String)
