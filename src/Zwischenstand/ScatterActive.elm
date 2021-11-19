@@ -240,6 +240,21 @@ type alias XyData =
     , data : List Point
     }
 
+xScale : List Float -> ContinuousScale Float
+xScale values =
+    Scale.linear ( 0, w - 2 * padding ) ( wideExtent values )
 
+
+yScale : List Float -> ContinuousScale Float
+yScale values =
+    Scale.linear ( h - 2 * padding, 0 ) ( wideExtent values )
+ 
+addieren : (Float, Float) -> Float-> (Float, Float) 
+addieren (min, max) shift =
+    if min <= 0 then
+        ( 0, max + shift)
+    else 
+        (min - shift, max + shift)
+    
         
 
