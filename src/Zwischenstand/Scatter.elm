@@ -228,3 +228,9 @@ point scaleX scaleY xyPoint =
 
 type alias Point =
     { pointName : String, x : Float, y : Float }
+
+type alias XyData =
+    { xDescription : String
+    , yDescription : String
+    , data : List Point
+    }
