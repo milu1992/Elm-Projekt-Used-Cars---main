@@ -131,7 +131,7 @@ update msg model =
                     ( Success <| { data = m.data, ersteFunktion = m.ersteFunktion, zweiteFunktion = y, dritteFunktion = m.dritteFunktion, vierteFunktion = m.vierteFunktion , ersterName = m.ersterName, zweiterName = a, dritterName = m.dritterName, vierterName = m.vierterName}, Cmd.none )
 
                 _ ->
-                ( model, Cmd.none )
+                    ( model, Cmd.none )
         Change3 (z, a) ->
             case model of
                 Success m ->

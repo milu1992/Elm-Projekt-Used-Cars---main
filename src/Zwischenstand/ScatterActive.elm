@@ -17,8 +17,6 @@ import TypedSvg.Attributes exposing (name)
 import Html exposing (ul)
 import Html exposing (li)
 import Html.Events exposing (onClick)
-import Zwischenstand.ParaKoodrinaten exposing (cars)
-import Zwischenstand.ParaKoodrinaten exposing (cars)
 
 main =
   Browser.element
@@ -46,7 +44,7 @@ init _ =
         |> List.map
             (\datensatz ->
                 Http.get
-                    { url = "https://github.com/milu1992/Elm-Projekt-Used-Cars---main/tree/master/Data/Aufbereitete%20Daten" ++ datensatz
+                    { url = "https://github.com/milu1992/Elm-Projekt-Used-Cars---main/tree/master/Data/Aufbereitete%20Daten/" ++ datensatz
                     , expect = Http.expectString GotText
                     }
             )
@@ -71,9 +69,6 @@ type alias Cars =
     , pS : Float
     , preisEuro : Float   
     , sitze : Float
-    , kraftstoff : String
-    , schaltung : String
-    , besitzer : String
     , kilometerPerLiter : Float
     , hubraum : Float
     
@@ -89,9 +84,6 @@ decodeCars =
             |> Csv.Decode.andMap (Csv.Decode.field "pS"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "preisEuro"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "sitze"(String.toFloat >> Result.fromMaybe "error parsing string"))
-            |> Csv.Decode.andMap (Csv.Decode.field "kraftstoff" ok)
-            |> Csv.Decode.andMap (Csv.Decode.field "schaltung" ok)
-            |> Csv.Decode.andMap (Csv.Decode.field "besitzer" ok)
             |> Csv.Decode.andMap (Csv.Decode.field "kilometerPerLiter"(String.toFloat >> Result.fromMaybe "error parsing string"))
             |> Csv.Decode.andMap (Csv.Decode.field "hubraum"(String.toFloat >> Result.fromMaybe "error parsing string"))
         )
@@ -107,7 +99,7 @@ update msg model =
         GotText result ->
             case result of
                 Ok fullText ->
-                    ( Success <| { data = CarsListe [ fullText ], xAAFunktion = .jahr, yAAFunktion = .preis , xName = "Baujahr", yName = "Preis"}, Cmd.none )
+                    ( Success <| { data = carsListe [ fullText ], xAAFunktion = .jahr, yAAFunktion = .preisEuro , xName = "Baujahr", yName = "Preis"}, Cmd.none )
 
                 Err _ ->
                     ( model, Cmd.none )
@@ -126,8 +118,8 @@ update msg model =
                 _ ->
                     ( model, Cmd.none )
 
-CarsListe :List String -> List Cars
-CarsListe liste1 =
+carsListe :List String -> List Cars
+carsListe liste1 =
     List.map(\t -> csvString_to_data t) liste1
         |> List.concat
 
@@ -231,6 +223,25 @@ scatterplot model =
             (List.map (point xScaleLocal yScaleLocal) model.data)
         ]
         
+point : ContinuousScale Float -> ContinuousScale Float -> Point -> Svg msg
+point scaleX scaleY xyPoint =
+    g
+        [
+            class["point"]
+            ,fontSize <| Px 15.0
+            ,fontFamily ["serif"]
+            ,transform
+                [
+                    Translate
+                    (Scale.convert scaleX xyPoint.x)
+                    (Scale.convert scaleY xyPoint.y)
+                ]
+        ]
+
+        [
+            circle [cx 0, cy 0, r 5] []
+            , text_ [x 10, y -20, textAnchor AnchorMiddle] [Html.text xyPoint.pointName]
+        ]
 type alias Point =
     { pointName : String, x : Float, y : Float }
 
@@ -288,8 +299,8 @@ yAxis values =
     Axis.left [ Axis.tickCount tickCount ] (yScale values)
 
 filterCars : List Cars -> (Cars -> String) -> (Cars -> Float) -> (Cars -> Float) -> String -> String -> XyData
-filterCars Carsliste a b c x y =
-    XyData x y (List.map (\n -> pointName n a b c x y) Carsliste)
+filterCars carsliste a b c x y =
+    XyData x y (List.map (\n -> pointName n a b c x y) carsliste)
 
 pointName : Cars -> (Cars -> String) -> (Cars -> Float) -> (Cars -> Float) -> String -> String -> Point
 pointName cars u v x y z =
@@ -319,9 +330,6 @@ view model =
                             , Html.button [onClick (ChangeX (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                             , Html.button [onClick (ChangeX (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                             , Html.button [onClick (ChangeX (.sitze, "Sitze"))][Html.text "Sitze"]
-                            , Html.button [onClick (ChangeX (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
-                            , Html.button [onClick (ChangeX (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
-                            , Html.button [onClick (ChangeX (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
                             , Html.button [onClick (ChangeX (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
                             , Html.button [onClick (ChangeX (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                         ]
@@ -334,9 +342,6 @@ view model =
                             , Html.button [onClick (ChangeY (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                             , Html.button [onClick (ChangeY (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                             , Html.button [onClick (ChangeY (.sitze, "Sitze"))][Html.text "Sitze"]
-                            , Html.button [onClick (ChangeY (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
-                            , Html.button [onClick (ChangeY (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
-                            , Html.button [onClick (ChangeY (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
                             , Html.button [onClick (ChangeY (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
                             , Html.button [onClick (ChangeY (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                         ]
