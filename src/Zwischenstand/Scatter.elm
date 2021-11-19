@@ -291,20 +291,20 @@ view : Model -> Html Msg
 view model =
     case model of
         Failure ->
-            Html.text "Ich konnte Ihre Weine nicht öffnen."
+            Html.text "Gebrauchtswagen konnten nicht geöffnet werden."
 
         Loading ->
-            Html.text "Weine werden geöffnet..."
+            Html.text "Gebrauchtwagen werden geöffnet..."
 
         Success l ->
             let
-                weine =
+               cars =
                     filterCars <| carsList l
 
             in
             Html.div []
                 [
-                    scatterplot weine
+                    scatterplot cars
                 ]
 carsList : List String -> List(String, Float, Float) 
 carsList liste1 =

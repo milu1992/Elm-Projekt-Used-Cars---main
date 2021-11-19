@@ -18,6 +18,7 @@ import Html exposing (ul)
 import Html exposing (li)
 import Html.Events exposing (onClick)
 import Zwischenstand.ParaKoodrinaten exposing (cars)
+import Zwischenstand.ParaKoodrinaten exposing (cars)
 
 main =
   Browser.element
@@ -293,8 +294,52 @@ filterCars Carsliste a b c x y =
 pointName : Cars -> (Cars -> String) -> (Cars -> Float) -> (Cars -> Float) -> String -> String -> Point
 pointName cars u v x y z =
     Point (u cars ++ ", " ++ y ++ ": " ++ String.fromFloat (v cars) ++ "," ++ z ++ ": " ++ String.fromFloat (x cars)) (v cars) (x cars)
-    
-    
-     
-        
 
+view : Model -> Html Msg
+view model =
+    case model of
+        Failure ->
+            Html.text "Gebrauchtwagen konnten nicht geöffnet werden."
+
+        Loading ->
+            Html.text "Gebrauchtwagen werden geöffnet..."
+
+        Success l ->
+            let
+                cars =
+                    filterCars l.data .name l.xAAFunktion l.yAAFunktion l.xName l.yName
+            in
+            Html.div []
+                [
+                    ul[][
+                        li[][
+                            Html.text <| "Suchen eine Eigenschaft für die X-Achse aus"
+                            , Html.button [onClick (ChangeX (.jahr, "Baujahr"))][Html.text "Baujahr"]
+                            , Html.button [onClick (ChangeX (.kilometerstand, "Kilometerstand"))][Html.text "Kilometerstand"]
+                            , Html.button [onClick (ChangeX (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
+                            , Html.button [onClick (ChangeX (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
+                            , Html.button [onClick (ChangeX (.sitze, "Sitze"))][Html.text "Sitze"]
+                            , Html.button [onClick (ChangeX (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
+                            , Html.button [onClick (ChangeX (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
+                            , Html.button [onClick (ChangeX (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
+                            , Html.button [onClick (ChangeX (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
+                            , Html.button [onClick (ChangeX (.hubraum, "Hubraum"))][Html.text "Hubraum"]
+                        ]
+                    ]
+                    , ul[][
+                        li[][
+                            Html.text <| "Suchen eine Eigenschaft für die Y-Achse aus"
+                            , Html.button [onClick (ChangeY (.jahr, "Baujahr"))][Html.text "Baujahr"]
+                            , Html.button [onClick (ChangeY (.kilometerstand, "Kilometerstand"))][Html.text "Kilometerstand"]
+                            , Html.button [onClick (ChangeY (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
+                            , Html.button [onClick (ChangeY (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
+                            , Html.button [onClick (ChangeY (.sitze, "Sitze"))][Html.text "Sitze"]
+                            , Html.button [onClick (ChangeY (.kraftstoff, "Kraftstoff"))][Html.text "Kraftstoff"]
+                            , Html.button [onClick (ChangeY (.schaltung, "Schaltgetriebe"))][Html.text "Schaltgetriebe"]
+                            , Html.button [onClick (ChangeY (.besitzer, "AnzahlVorbesitzer"))][Html.text "AnzahlVorbesiter"]
+                            , Html.button [onClick (ChangeY (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
+                            , Html.button [onClick (ChangeY (.hubraum, "Hubraum"))][Html.text "Hubraum"]
+                        ]
+                    ] 
+                    ,   scatterplot weine
+                ]
