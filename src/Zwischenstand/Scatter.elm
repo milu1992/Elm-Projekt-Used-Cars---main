@@ -238,3 +238,7 @@ type alias XyData =
 xScale : List Float -> ContinuousScale Float
 xScale values =
     Scale.linear ( 0, w - 2 * padding ) ( wideExtent values )
+
+yScale : List Float -> ContinuousScale Float
+yScale values =
+    Scale.linear ( h - 2 * padding, 0 ) ( wideExtent values )
