@@ -44,7 +44,7 @@ init _ =
 
 liste : List String
 liste =
-    [ "train.csv"]
+    [ "CarCleanFinalC.csv"]
 
 csvString_to_data : String -> List (String, Maybe Float, Maybe Float)
 csvString_to_data csvRaw =
