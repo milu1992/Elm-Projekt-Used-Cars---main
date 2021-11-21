@@ -35,7 +35,7 @@ init _ =
         |> List.map
             (\datensatz ->
                 Http.get
-                    { url = "https://github.com/milu1992/Elm-Projekt-Used-Cars---main/tree/master/Data/Aufbereitete%20Daten/" ++ datensatz
+                    { url = "https://github.com/milu1992/Elm-Projekt-Used-Cars---main/tree/master/Data/Quelldaten/" ++ datensatz
                     , expect = Http.expectString GotText
                     }
             )
@@ -58,7 +58,7 @@ decodeStockDay =
     Csv.Decode.map (\a b c-> ( a, Just b, Just c ))
         (Csv.Decode.field "name" Ok
             |> Csv.Decode.andMap
-                (Csv.Decode.field "pS" 
+                (Csv.Decode.field "kilometerstand" 
                     (String.toFloat >> Result.fromMaybe "error parsing string")
                     |> Csv.Decode.andMap
                         (Csv.Decode.field "jahr" 
@@ -76,6 +76,11 @@ transform1 ganzerText =
 transform2 : List (String, Maybe Float, Maybe Float) -> List (String, Float, Float)
 transform2 ganzerText =
     List.map(\(a, b, c) -> (a, b |> Maybe.withDefault 0.0, c |> Maybe.withDefault 0.0)) ganzerText
+
+renderList : List (String, String, String) -> Html msg
+renderList lst =
+    Html.ul []
+        (List.map (\( a, b, c ) -> Html.li [] [ Html.text <| a ++ ", " ++ b ++ ", " ++ c ]) lst)
 
 type Msg
     = GotText (Result Http.Error String)
