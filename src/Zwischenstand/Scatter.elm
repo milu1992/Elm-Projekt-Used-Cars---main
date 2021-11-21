@@ -58,10 +58,10 @@ decodeStockDay =
     Csv.Decode.map (\a b c-> ( a, Just b, Just c ))
         (Csv.Decode.field "name" Ok
             |> Csv.Decode.andMap
-                (Csv.Decode.field "preisEuro" 
+                (Csv.Decode.field "pS" 
                     (String.toFloat >> Result.fromMaybe "error parsing string")
                     |> Csv.Decode.andMap
-                        (Csv.Decode.field "jahr" 
+                        (Csv.Decode.field "preisEuro" 
                             (String.toFloat >> Result.fromMaybe "error parsing string")
                                 
                         )
