@@ -44,7 +44,7 @@ init _ =
 
 liste : List String
 liste =
-    [ "CarCleanFinal.csv"]
+    [ "CarCleanFinal.csv.csv"]
 
 csvString_to_data : String -> List (String, Maybe Float, Maybe Float)
 csvString_to_data csvRaw =
@@ -69,8 +69,8 @@ decodeStockDay =
         )
 
 
-transform : List (String, Maybe Float, Maybe Float) -> List (String, String, String)
-transform ganzerText =
+transform1 : List (String, Maybe Float, Maybe Float) -> List (String, String, String)
+transform1 ganzerText =
     List.map (\( a, b, c ) -> ( a, b |> Maybe.map String.fromFloat |> Maybe.withDefault "Kein Wert vorhanden", c |> Maybe.map String.fromFloat |> Maybe.withDefault "Kein Wert vorhanden")) ganzerText
 
 transform2 : List (String, Maybe Float, Maybe Float) -> List (String, Float, Float)
