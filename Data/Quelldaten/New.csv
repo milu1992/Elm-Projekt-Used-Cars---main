@@ -27,7 +27,7 @@
 127222,Nissan Micra Diesel XV,Hyderabad,Telangana,Südindien,Indien,2012,54000,64,495176,Diesel,Manual,First,32312,1461,5
 127223,Maruti Alto K10 2010-2014 VXI,Hyderabad,Telangana,Südindien,Indien,2013,54000,68,320408,Benzin,Manual,Second,29288,998,5
 127224,Honda WRV i-VTEC VX,Kochi,Kerala,Südindien,Indien,2018,37430,90,1153470,Benzin,Manual,First,245,1199,5
-127225,Toyota Innova 2.5 V Diesel 7-seater,Mumbai,Maharashtra,Westindien,Indien,2007,262000,103,466048,Diesel,Manual,Fourth & Above,1792,2494,7
+127225,Toyota Innova 2.5 V Diesel 7-seater,Mumbai,Maharashtra,Westindien,Indien,2007,262000,103,466048,Diesel,Manual,Fourth und Above,1792,2494,7
 127226,Renault Duster 110PS Diesel RxZ Pack,Bangalore,Karnataka,Südindien,Indien,2013,62000,110,902969,Diesel,Manual,First,26614,1461,5
 127227,Toyota Corolla Altis G,Delhi,DelhiStaat,Nordindien,Indien,2012,87615,139,786457,Benzin,Manual,First,20342,1798,5
 127228,Mahindra Ssangyong Rexton RX7,Bangalore,Karnataka,Südindien,Indien,2013,72000,186,1456401,Diesel,Automatic,Second,15652,2696,7
@@ -341,7 +341,7 @@
 127536,Chevrolet Spark 1.0 LS,Kolkata,Westbengalen,Ostindien,Indien,2011,21000,63,110686,Benzin,Manual,Second,252,995,5
 127537,Jaguar XF 2.0 Diesel Portfolio,Hyderabad,Telangana,Südindien,Indien,2017,21000,179,6058629,Diesel,Automatic,First,27062,1999,5
 127538,Honda CR-V RVi MT,Jaipur,Rajastahn,Nordindien,Indien,2007,119000,143,455562,Benzin,Manual,Third,1834,1997,5
-127539,Skoda Superb L&K 1.8 TSI AT,Kochi,Kerala,Südindien,Indien,2019,13747,179,3180780,Benzin,Automatic,First,20538,1798,5
+127539,Skoda Superb LundK 1.8 TSI AT,Kochi,Kerala,Südindien,Indien,2019,13747,179,3180780,Benzin,Automatic,First,20538,1798,5
 127540,Hyundai i10 Magna 1.2,Chennai,Tamil Nadu,Ostindien,Indien,2009,620000,80,314583,Benzin,Manual,First,28504,1197,5
 127541,Maruti Swift LDI,Delhi,DelhiStaat,Nordindien,Indien,2013,70000,75,407792,Diesel,Manual,First,3206,1248,5
 127542,Maruti Swift Dzire VXi AT,Mumbai,Maharashtra,Westindien,Indien,2016,18000,84,722375,Benzin,Automatic,First,259,1197,5
@@ -853,7 +853,7 @@
 128048,Hyundai i10 Magna,Jaipur,Rajastahn,Nordindien,Indien,2010,66770,80,302931,Benzin,Manual,Second,28504,1197,5
 128049,Hyundai i10 Magna 1.1,Kochi,Kerala,Südindien,Indien,2014,58472,69,397306,Benzin,Manual,First,27734,1086,5
 128050,Maruti Dzire VXI,Kolkata,Westbengalen,Ostindien,Indien,2011,46687,83,314583,Benzin,Manual,First,308,1197,5
-128051,Maruti Grand Vitara AT,Chennai,Tamil Nadu,Ostindien,Indien,2008,77000,165,640817,Benzin,Automatic,Fourth & Above,1358,1995,5
+128051,Maruti Grand Vitara AT,Chennai,Tamil Nadu,Ostindien,Indien,2008,77000,165,640817,Benzin,Automatic,Fourth und Above,1358,1995,5
 128052,Audi TT 40 TFSI,Kolkata,Westbengalen,Ostindien,Indien,2012,7000,229,4077923,Benzin,Automatic,First,20062,1984,4
 128053,Mercedes-Benz New C-Class C 200 CGI,Mumbai,Maharashtra,Westindien,Indien,2011,48000,186,1135993,Benzin,Automatic,Second,20636,1991,5
 128054,Nissan Sunny 2011-2014 Diesel XV,Mumbai,Maharashtra,Westindien,Indien,2013,47000,86,495176,Diesel,Manual,First,30296,1461,5
@@ -1042,7 +1042,7 @@
 128237,Porsche Boxster S tiptronic,Kolkata,Westbengalen,Ostindien,Indien,2015,10512,268,7456774,Benzin,Automatic,First,1204,2706,2
 128238,Maruti Swift ZDi,Pune,Maharashtra,Westindien,Indien,2016,58000,75,879666,Diesel,Manual,First,3206,1248,5
 128239,Tata Zest Revotron 1.2 XT,Mumbai,Maharashtra,Westindien,Indien,2014,40000,90,460223,Benzin,Manual,First,24598,1193,5
-128240,Hyundai i20 1.2 Sportz Option,Bangalore,Karnataka,Südindien,Indien,2010,61000,81,378664,Benzin,Manual,Fourth & Above,238,1197,5
+128240,Hyundai i20 1.2 Sportz Option,Bangalore,Karnataka,Südindien,Indien,2010,61000,81,378664,Benzin,Manual,Fourth und Above,238,1197,5
 128241,Skoda Fabia 1.4 TDI Active,Mumbai,Maharashtra,Westindien,Indien,2009,86000,71,320408,Diesel,Manual,First,2716,1422,5
 128242,Toyota Corolla Altis D-4D J,Kolkata,Westbengalen,Ostindien,Indien,2015,45000,88,856364,Diesel,Manual,First,30002,1364,5
 128243,Volkswagen Ameo 1.2 MPI Comfortline,Ahmedabad,Gujarat,Westindien,Indien,2017,55000,74,547607,Benzin,Manual,First,238,1198,5
@@ -1642,7 +1642,7 @@
 128837,Mahindra Scorpio VLX,Mumbai,Maharashtra,Westindien,Indien,2011,100010,121,640817,Diesel,Manual,Second,1687,2179,8
 128838,Honda Brio V MT,Mumbai,Maharashtra,Westindien,Indien,2013,63107,88,378664,Benzin,Manual,First,2716,1198,5
 128839,Hyundai i20 1.2 Magna Executive,Jaipur,Rajastahn,Nordindien,Indien,2017,58500,83,728201,Benzin,Manual,First,2604,1197,5
-128840,Ford Endeavour 4x2 XLT Limited Edition,Pune,Maharashtra,Westindien,Indien,2007,90000,144,349536,Diesel,Manual,Fourth & Above,1526,2499,7
+128840,Ford Endeavour 4x2 XLT Limited Edition,Pune,Maharashtra,Westindien,Indien,2007,90000,144,349536,Diesel,Manual,Fourth und Above,1526,2499,7
 128841,Hyundai Verna CRDi SX,Chennai,Tamil Nadu,Ostindien,Indien,2011,108242,111,495176,Diesel,Manual,First,2352,1493,5
 128842,Toyota Fortuner 3.0 Diesel,Pune,Maharashtra,Westindien,Indien,2011,146300,173,1427273,Diesel,Manual,First,161,2982,7
 128843,BMW X1 sDrive20d,Pune,Maharashtra,Westindien,Indien,2011,62943,186,1275807,Diesel,Automatic,Second,2387,1995,5
@@ -2896,7 +2896,7 @@
 130091,Ford EcoSport 1.5 TDCi Trend,Delhi,DelhiStaat,Nordindien,Indien,2016,46727,100,844713,Diesel,Manual,First,31878,1498,5
 130092,BMW 3 Series 320d,Hyderabad,Telangana,Südindien,Indien,2010,73336,172,1245514,Diesel,Automatic,First,1848,1995,5
 130093,Hyundai Verna 1.6 SX VTVT,Mumbai,Maharashtra,Westindien,Indien,2014,9000,123,640817,Benzin,Manual,Second,23814,1591,5
-130094,Toyota Innova 2.5 G4 Diesel 8-seater,Chennai,Tamil Nadu,Ostindien,Indien,2005,240000,103,594212,Diesel,Manual,Fourth & Above,1792,2494,8
+130094,Toyota Innova 2.5 G4 Diesel 8-seater,Chennai,Tamil Nadu,Ostindien,Indien,2005,240000,103,594212,Diesel,Manual,Fourth und Above,1792,2494,8
 130095,Maruti Wagon R LXI,Mumbai,Maharashtra,Westindien,Indien,2014,25422,68,378664,Benzin,Manual,First,315,998,5
 130096,Maruti Ertiga VDI,Mumbai,Maharashtra,Westindien,Indien,2018,14000,89,1077737,Diesel,Manual,First,35658,1248,7
 130097,Maruti Alto LXi BSIII,Hyderabad,Telangana,Südindien,Indien,2008,66000,47,198071,Benzin,Manual,First,2758,796,5
@@ -3265,7 +3265,7 @@
 130460,Mitsubishi Pajero 2.8 GLX CRZ,Hyderabad,Telangana,Südindien,Indien,2007,78000,108,722375,Diesel,Manual,Second,147,2835,6
 130461,Honda City i DTEC SV,Mumbai,Maharashtra,Westindien,Indien,2014,25000,100,716549,Diesel,Manual,First,364,1498,5
 130462,Maruti Alto K10 2010-2014 VXI,Pune,Maharashtra,Westindien,Indien,2012,12600,68,279629,Benzin,Manual,First,29288,998,5
-130463,Maruti Swift Ldi BSIII,Pune,Maharashtra,Westindien,Indien,2009,80000,76,250501,Diesel,Manual,Fourth & Above,2492,1248,5
+130463,Maruti Swift Ldi BSIII,Pune,Maharashtra,Westindien,Indien,2009,80000,76,250501,Diesel,Manual,Fourth und Above,2492,1248,5
 130464,Hyundai Grand i10 Magna,Kolkata,Westbengalen,Ostindien,Indien,2016,21000,83,436920,Benzin,Manual,First,2646,1197,5
 130465,Ford Figo Benzin ZXI,Mumbai,Maharashtra,Westindien,Indien,2011,32000,71,250501,Benzin,Manual,Second,2184,1196,5
 130466,Hyundai Grand i10 SportZ Edition,Bangalore,Karnataka,Südindien,Indien,2015,50000,83,553432,Benzin,Manual,First,2646,1197,5
@@ -4024,7 +4024,7 @@
 131219,Hyundai Creta 1.6 VTVT S,Pune,Maharashtra,Westindien,Indien,2016,26000,123,1456401,Benzin,Manual,First,21406,1591,5
 131220,Maruti Wagon R LXI BS IV,Pune,Maharashtra,Westindien,Indien,2013,32425,68,349536,Benzin,Manual,First,28714,998,5
 131221,Maruti Dzire VDI,Kochi,Kerala,Südindien,Indien,2017,54758,74,777136,Diesel,Manual,First,3976,1248,5
-131222,Ford Ikon 1.3 Flair,Coimbatore,Tamil Nadu,Südindien,Indien,2008,59833,71,229529,Benzin,Manual,Fourth & Above,1932,1299,5
+131222,Ford Ikon 1.3 Flair,Coimbatore,Tamil Nadu,Südindien,Indien,2008,59833,71,229529,Benzin,Manual,Fourth und Above,1932,1299,5
 131223,Volkswagen Polo Benzin Comfortline 1.2L,Kolkata,Westbengalen,Ostindien,Indien,2013,30000,75,326234,Benzin,Manual,First,23058,1198,5
 131224,Hyundai i10 Magna 1.2,Jaipur,Rajastahn,Nordindien,Indien,2011,40496,80,308757,Benzin,Manual,First,28504,1197,5
 131225,Chevrolet Enjoy 1.3 TCDi LTZ 8,Chennai,Tamil Nadu,Ostindien,Indien,2014,45000,74,553432,Diesel,Manual,First,2548,1248,8
@@ -5700,7 +5700,7 @@
 132897,Renault Duster 110PS Diesel RxZ,Bangalore,Karnataka,Südindien,Indien,2014,70000,110,961225,Diesel,Manual,First,2744,1461,5
 132898,Maruti Swift VDI,Pune,Maharashtra,Westindien,Indien,2014,84000,75,611688,Diesel,Manual,First,3206,1248,5
 132899,Volkswagen Vento Magnific 1.6 Comfortline,Mumbai,Maharashtra,Westindien,Indien,2013,49106,104,512653,Benzin,Manual,First,21056,1598,5
-132900,Skoda Superb L&K 2.0 TDI AT,Mumbai,Maharashtra,Westindien,Indien,2017,35000,176,3000186,Diesel,Automatic,First,25466,1968,5
+132900,Skoda Superb LundK 2.0 TDI AT,Mumbai,Maharashtra,Westindien,Indien,2017,35000,176,3000186,Diesel,Automatic,First,25466,1968,5
 132901,BMW 3 Series 330d Convertible,Kochi,Kerala,Südindien,Indien,2014,51240,247,3439437,Diesel,Automatic,First,1148,2993,4
 132902,Maruti Wagon R VXI BS IV,Kolkata,Westbengalen,Ostindien,Indien,2011,37000,68,244675,Benzin,Manual,Second,2646,998,5
 132903,Renault KWID RXT,Kochi,Kerala,Südindien,Indien,2017,32587,54,432260,Benzin,Manual,First,35238,799,5
