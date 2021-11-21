@@ -44,7 +44,7 @@ init _ =
 
 liste : List String
 liste =
-    [ "CarCleanFinalC.csv"]
+    [ "New.csv"]
 
 csvString_to_data : String -> List (String, Maybe Float, Maybe Float)
 csvString_to_data csvRaw =
@@ -58,7 +58,7 @@ decodeStockDay =
     Csv.Decode.map (\a b c-> ( a, Just b, Just c ))
         (Csv.Decode.field "name" Ok
             |> Csv.Decode.andMap
-                (Csv.Decode.field "kilometerstand" 
+                (Csv.Decode.field "pS" 
                     (String.toFloat >> Result.fromMaybe "error parsing string")
                     |> Csv.Decode.andMap
                         (Csv.Decode.field "jahr" 
