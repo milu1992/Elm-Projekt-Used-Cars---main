@@ -35,7 +35,7 @@ init _ =
         |> List.map
             (\datensatz ->
                 Http.get
-                    { url = "https://github.com/milu1992/Elm-Projekt-Used-Cars---main/tree/master/Data/Quelldaten/" ++ datensatz
+                    { url = "https://raw.githubusercontent.com/milu1992/Elm-Projekt-Used-Cars---main/master/Data/Quelldaten/" ++ datensatz
                     , expect = Http.expectString GotText
                     }
             )
@@ -44,7 +44,7 @@ init _ =
 
 liste : List String
 liste =
-    [ "New.csv"]
+    [ "Final.csv"]
 
 csvString_to_data : String -> List (String, Maybe Float, Maybe Float)
 csvString_to_data csvRaw =

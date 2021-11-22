@@ -68,7 +68,7 @@ getData x =
         |> List.map
             (\datensatz ->
                 Http.get
-                    { url = "https://raw.githubusercontent.com/milu1992/Elm-Projekt-Used-Cars---main/master/Data/Aufbereitete%20Daten/" ++ datensatz
+                    { url = "https://raw.githubusercontent.com/milu1992/Elm-Projekt-Used-Cars---main/master/Data/Quelldaten/" ++ datensatz
                     , expect = Http.expectString x
                     }
             )
@@ -76,7 +76,7 @@ getData x =
 
 liste : List String
 liste =
-    ["CarCleanFinal.csv.csv"]
+    ["Final.csv"]
 
 csvStringToValue : String -> List Cars
 csvStringToValue csvRaw =
