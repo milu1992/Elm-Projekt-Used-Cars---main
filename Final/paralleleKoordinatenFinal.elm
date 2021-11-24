@@ -214,7 +214,7 @@ parallelCoodinatesPlot w ar model =
             ]
         ]
             ++ (let
-                    drawPoint p =
+                    drawPoint p name beschreibung =
                         let
                             linePath : Path.Path
                             linePath =
@@ -231,7 +231,7 @@ parallelCoodinatesPlot w ar model =
                                     |> Shape.line Shape.linearCurve
                         in 
                         g [class ["parallelerPunkt"]][
-                            Path.element linienWeg
+                            Path.element linePath
                             [ stroke <| Paint <| Color.rgba 0 0 0 0.8
                             , strokeWidth <| Px 0.5
                             , fill PaintNone
@@ -251,18 +251,11 @@ parallelCoodinatesPlot w ar model =
                         |> List.map
                             (\dataset ->
                                 g [ transform [ Translate (padding - 1) padding ] ]
-                                    (List.map (.value >> drawPoint) dataset)
+                                    (List.map (\a -> drawPoint a.value a.pointName model.dimDescription) dataset)
                             )
                     )
 
 
-main =
-  Browser.element
-        { init = init
-        , update = update
-        , subscriptions = subscriptions
-        , view = view
-        }
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( Loading
