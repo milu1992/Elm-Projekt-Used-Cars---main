@@ -19,6 +19,15 @@ import TypedSvg.Attributes.InPx exposing (x, y)
 import TypedSvg.Core exposing (Svg)
 import TypedSvg.Types exposing (AnchorAlignment(..), Length(..), Paint(..), Transform(..))
 
+
+main =
+  Browser.element
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }
+
 type Model
   = Failure
   | Loading
@@ -230,13 +239,6 @@ parallelCoodinatesPlot w ar model =
                         )
                )
 
-main =
-  Browser.element
-        { init = init
-        , update = update
-        , subscriptions = subscriptions
-        , view = view
-        }
 
 init : () -> ( Model, Cmd Msg )
 init _ =
