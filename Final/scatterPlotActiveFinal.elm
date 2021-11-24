@@ -273,7 +273,7 @@ main =
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( Laden
+    ( Loading
     , getData GotText
     )
 
