@@ -229,22 +229,40 @@ parallelCoodinatesPlot w ar model =
                                     listScale
                                     p
                                     |> Shape.line Shape.linearCurve
-                        in
-                        Path.element linePath
+                        in 
+                        g [class ["parallelerPunkt"]][
+                            Path.element linienWeg
                             [ stroke <| Paint <| Color.rgba 0 0 0 0.8
                             , strokeWidth <| Px 0.5
                             , fill PaintNone
+                            , class ["parallelerPunkt"]
                             ]
-                in
-                model.data
-                    |> List.map
-                        (\dataset ->
-                            g [ transform [ Translate (padding - 1) padding ] ]
-                                (List.map (.value >> drawPoint) dataset)
-                        )
-               )
+                            , text_
+                                [ x 300
+                                , y -20
+                                , TypedSvg.Attributes.textAnchor AnchorMiddle
+                                ]
+                                [ TypedSvg.Core.text (name++ (String.concat<|(List.map2(\a b-> ", " ++b++ ": "++ (String.fromFloat a))p beschreibung)))]
+                                
+                        ]
+
+                    in
+                    model.data
+                        |> List.map
+                            (\dataset ->
+                                g [ transform [ Translate (padding - 1) padding ] ]
+                                    (List.map (.value >> drawPoint) dataset)
+                            )
+                    )
 
 
+main =
+  Browser.element
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( Loading
