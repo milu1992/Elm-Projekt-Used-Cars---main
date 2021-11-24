@@ -274,7 +274,7 @@ main =
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( Laden
-    , getData ErhalteText
+    , getData GotText
     )
 
 subscriptions : Model -> Sub Msg
