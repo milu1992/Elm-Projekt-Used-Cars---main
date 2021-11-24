@@ -60,7 +60,7 @@ getData x =
         |> List.map
             (\datensatz ->
                 Http.get
-                    { url = "https://github.com/milu1992/Elm-Projekt-Used-Cars---main/blob/3e9cb1501939e0698ad93d5202ce759db2661c28/Data/Quelldaten/" ++ datensatz
+                    { url = "https://raw.githubusercontent.com/milu1992/Elm-Projekt-Used-Cars---main/3e9cb1501939e0698ad93d5202ce759db2661c28/Data/Quelldaten/" ++ datensatz
                     , expect = Http.expectString x
                     }
             )
