@@ -68,7 +68,7 @@ getData x =
 
 liste : List String
 liste =
-    [ "FinalN.csv"]
+    [ "Final.csv"]
 
 csvString_to_data : String -> List Cars
 csvString_to_data csvRaw =
