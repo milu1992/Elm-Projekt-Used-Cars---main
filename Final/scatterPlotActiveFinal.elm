@@ -136,6 +136,9 @@ xScale : List Float -> ContinuousScale Float
 xScale values =
     Scale.linear ( 0, w - 2 * padding ) ( wideExtent values )
 
+standardExtent : ( number, number1 )
+standardExtent =
+    ( 0, 100 )
 
 yScale : List Float -> ContinuousScale Float
 yScale values =
