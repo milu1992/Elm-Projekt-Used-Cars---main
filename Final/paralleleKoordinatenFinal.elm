@@ -83,7 +83,7 @@ getData x =
 
 liste : List String
 liste =
-    ["Final.csv"]
+    ["FinalN.csv"]
 
 csvStringToValue : String -> List Cars
 csvStringToValue csvRaw =
@@ -301,7 +301,7 @@ view model =
                                     , Html.button [onClick (Change1 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                                     , Html.button [onClick (Change1 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                                     , Html.button [onClick (Change1 (.sitze, "Sitze"))][Html.text "Sitze"]
-                                    , Html.button [onClick (Change1 (.kilometerPerLiter, "KilometerPerLiterr"))][Html.text "Mililiter"]
+                                    , Html.button [onClick (Change1 (.kilometerPerLiter, "KilometerPerLiterr"))][Html.text "kilometerPerLiter"]
                                     , Html.button [onClick (Change1 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]                           
                             ]
@@ -313,7 +313,7 @@ view model =
                                     , Html.button [onClick (Change2 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                                     , Html.button [onClick (Change2 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                                     , Html.button [onClick (Change2 (.sitze, "Sitze"))][Html.text "Sitze"]
-                                    , Html.button [onClick (Change2 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
+                                    , Html.button [onClick (Change2 (.kilometerPerLiter, "kilometerPerLiter"))][Html.text "kilometerPerLiter"]
                                     , Html.button [onClick (Change2 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]    
                             ] 
@@ -325,7 +325,7 @@ view model =
                                     , Html.button [onClick (Change3 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                                     , Html.button [onClick (Change3 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                                     , Html.button [onClick (Change3 (.sitze, "Sitze"))][Html.text "Sitze"]
-                                    , Html.button [onClick (Change3 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
+                                    , Html.button [onClick (Change3 (.kilometerPerLiter, "kilometerPerLiter"))][Html.text "kilometerPerLiter"]
                                     , Html.button [onClick (Change3 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]    
                             ] 
@@ -337,7 +337,7 @@ view model =
                                     , Html.button [onClick (Change4 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                                     , Html.button [onClick (Change4 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                                     , Html.button [onClick (Change4 (.sitze, "Sitze"))][Html.text "Sitze"]
-                                    , Html.button [onClick (Change4 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
+                                    , Html.button [onClick (Change4 (.kilometerPerLiter, "kilometerPerLiter"))][Html.text "kilometerPerLiter"]
                                     , Html.button [onClick (Change4 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]    
                             ] 
