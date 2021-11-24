@@ -145,11 +145,11 @@ yScale values =
     Scale.linear ( h - 2 * padding, 0 ) ( wideExtent values )
  
 addieren : (Float, Float) -> Float-> (Float, Float) 
-addieren (min, max) shift =
+addieren (min, max) x =
     if min <= 0 then
-        ( 0, max + shift)
+        ( 0, max + x)
     else 
-        (min - shift, max + shift)
+        (min - x, max + x)
     
 wideExtent : List Float -> ( Float, Float )
 wideExtent values = 
@@ -239,10 +239,10 @@ scatterplot model =
                 [ x (Scale.convert xScaleLocal labelPositions.x)
                 , y 35
 
-                -- , fontFamily [ "Helvetica", "sans-serif" ]
+                , fontFamily [ "Helvetica", "sans-serif" ]
                 , fontSize (px 20)
 
-                --, fontWeight FontWeightBold
+            
                 ]
                 [ TypedSvg.Core.text model.xDescription ]
             ]
@@ -252,10 +252,10 @@ scatterplot model =
                 [ x -30
                 , y -30
 
-                -- , fontFamily [ "Helvetica", "sans-serif" ]
+                , fontFamily [ "Helvetica", "sans-serif" ]
                 , fontSize (px 20)
 
-                --, fontWeight FontWeightBold
+              
                 ]
                 [ TypedSvg.Core.text model.yDescription ]
             ]
