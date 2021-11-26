@@ -12,7 +12,7 @@ import TypedSvg.Attributes exposing (fill, stroke, textAnchor, transform, fontFa
 import TypedSvg.Attributes.InPx exposing (cx, cy, r, x1, x2, y1, y2)
 import TypedSvg.Core exposing (Svg)
 import TypedSvg.Types as ST exposing (AnchorAlignment(..), Length(..), Paint(..), Transform(..))
-
+import TreeDiagram exposing (node, TreeOrientation, topToBottom)
 
 type alias Model =
     { tree : TreeDiagram.Tree String, errorMsg : String }
