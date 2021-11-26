@@ -15,7 +15,9 @@ import TypedSvg.Types as ST exposing (AnchorAlignment(..), Length(..), Paint(..)
 import TreeDiagram exposing (node, TreeOrientation, topToBottom)
 
 type alias Model =
-    { tree : TreeDiagram.Tree String, errorMsg : String }
+    { tree : TreeDiagram.Tree String
+    , errorMsg : String 
+    }
 
 type Msg
     = GotFlare (Result Http.Error (TreeDiagram.Tree String))
@@ -59,17 +61,17 @@ drawNode n =
         []
         [ circle 
             [ r 16
-            , stroke (Paint Color.red)
-            , fill (Paint Color.red)
-            , cx 0
-            , cy 0 
+                , stroke (Paint Color.red)
+                , fill (Paint Color.red)
+                , cx 0
+                , cy 0 
             ] 
             []
         , text_ 
             [ textAnchor AnchorEnd
             , transform 
                 [ Translate -5.5 -20.5 
-                , Rotate 60.0 0.0 0.0
+                 , Rotate 60.0 0.0 0.0
                 ]
             , fontFamily [ "calibri" ]
             , fontSize (Px 12)
