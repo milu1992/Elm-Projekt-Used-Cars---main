@@ -94,7 +94,7 @@ main =
 init : () -> ( Model, Cmd Msg )
 init () =
     ( { tree = TreeDiagram.node "" [], errorMsg = "Loading ..." }
-    , Http.get { url = "https://raw.githubusercontent.com/milu1992/Elm-Projekt-Used-Cars---main/master/Data/Aufbereitete%20Daten/LocationCar.json", expect = Http.expectJson GotFlare treeDecoder }
+    , Http.get { url = "https://raw.githubusercontent.com/milu1992/Elm-Projekt-Used-Cars---main/master/Data/AufbereiteteDaten/LocationCar.json", expect = Http.expectJson GotFlare treeDecoder }
     )
 view : Model -> Html Msg
 view model =
