@@ -252,7 +252,7 @@ scatterplot model =
                 [ x -30
                 , y -30
 
-                , fontFamily [ "calibri", "sans-serif" ]
+                , fontFamily [ "calibri"]
                 , fontSize (px 20)
 
               
