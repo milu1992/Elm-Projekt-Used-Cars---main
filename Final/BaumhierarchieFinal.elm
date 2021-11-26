@@ -98,7 +98,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ TreeDiagram.Svg.draw TreeDiagram.defaultTreeLayout drawNode drawLine model.tree 
-        
+        ]
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
