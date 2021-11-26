@@ -180,7 +180,7 @@ parallelCoodinatesPlot w ar model =
         [ TypedSvg.style []
             [
                 TypedSvg.Core.text """
-                .parallelerPunkt { stroke: rgba(102, 102, 102,0.1);}
+                .parallelerPunkt { stroke: rgba(117, 117, 117,0.1);}
                 .parallelerPunkt:hover {stroke: rgb(230, 0, 38); stroke-width: 2;} 
                 .parallelerPunkt text { display: none; }
                 .parallelerPunkt:hover text { display: inline; stroke: rgb(0, 0, 0); stroke-width: 0.1; font-size: small; font-family: calibri}  
