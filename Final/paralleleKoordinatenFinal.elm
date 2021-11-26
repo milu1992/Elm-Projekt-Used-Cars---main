@@ -180,7 +180,7 @@ parallelCoodinatesPlot w ar model =
         [ TypedSvg.style []
             [
                 TypedSvg.Core.text """
-                .parallelerPunkt { stroke: rgba(102, 102, 102,0.1);}
+                .parallelerPunkt { stroke: rgba(1, 0, 0,0.2);}
                 .parallelerPunkt:hover {stroke: rgb(173, 255, 47); stroke-width: 2;} 
                 .parallelerPunkt text { display: none; }
                 .parallelerPunkt:hover text { display: inline; stroke: rgb(0, 0, 0); stroke-width: 0.1; font-size: small; font-family: calibri}  
@@ -337,7 +337,7 @@ view model =
                                     , Html.button [onClick (Change4 (.pS, "Pferdestärken"))][Html.text "Pferdestärken"]
                                     , Html.button [onClick (Change4 (.preisEuro, "PreisInEuro"))][Html.text "PreisInEuro"]
                                     , Html.button [onClick (Change4 (.sitze, "Sitze"))][Html.text "Sitze"]
-                                    , Html.button [onClick (Change4 (.kilometerPerLiter, "kilometerPerLiter"))][Html.text "kilometerPerLiter"]
+                                    , Html.button [onClick (Change4 (.kilometerPerLiter, "Mililiter"))][Html.text "Mililiter"]
                                     , Html.button [onClick (Change4 (.hubraum, "Hubraum"))][Html.text "Hubraum"]
                                 ]    
                             ] 
