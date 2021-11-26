@@ -239,7 +239,7 @@ scatterplot model =
                 [ x (Scale.convert xScaleLocal labelPositions.x)
                 , y 35
 
-                , fontFamily [ "calibri", "sans-serif" ]
+                , fontFamily [ "calibri" ]
                 , fontSize (px 20)
 
             
