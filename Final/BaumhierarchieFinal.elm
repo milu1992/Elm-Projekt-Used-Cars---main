@@ -50,7 +50,7 @@ treeDecoder =
 drawLine : (Float, Float ) -> Svg msg
 drawLine ( targetX, targetY ) =
     line
-        [ x1 0, y1 0, x2 targetX, y2 targetY, stroke (ST.Paint Color.black) ]
+        [ x1 0, y1 0, x2 targetX, y2 targetY, stroke (ST.Paint Color.darkGrey) ]
         []
 
 drawNode : String -> Svg msg
@@ -71,6 +71,8 @@ drawNode n =
                 [ Translate -5.5 -20.5 
                 , Rotate 60.0 0.0 0.0
                 ]
+            , fontFamily [ "calibri" ]
+            , fontSize (Px 12)
             ] 
             [ text n ]
         ]
@@ -95,8 +97,7 @@ init () =
 view : Model -> Html Msg
 view model =
     div []
-        [ TreeDiagram.Svg.draw TreeDiagram.defaultTreeLayout drawNode drawLine model.tree --Html.text model.errorMsg
-        ]
+        [ TreeDiagram.Svg.draw TreeDiagram.defaultTreeLayout drawNode drawLine model.tree 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
