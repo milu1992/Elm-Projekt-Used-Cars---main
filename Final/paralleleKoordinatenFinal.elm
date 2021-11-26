@@ -202,7 +202,7 @@ parallelCoodinatesPlot w ar model =
                 List.indexedMap
                     (\i desc ->
                         text_
-                            [ fontFamily [ "sans-serif" ]
+                            [ fontFamily [ "calibri" ]
                             , fontSize (Px 10)
                             , x <| Scale.convert xScale (toFloat i + 1)
                             , y <| padding * 7 / 8
