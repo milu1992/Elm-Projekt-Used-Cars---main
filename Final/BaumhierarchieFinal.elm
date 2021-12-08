@@ -5,7 +5,7 @@ import Color
 import Html exposing (Html, div, text)
 import Http
 import Json.Decode
-import TreeDiagram
+import TreeDiagram exposing (TreeLayout, topToBottom)
 import TreeDiagram.Svg
 import TypedSvg exposing (circle, g, line, text_)
 import TypedSvg.Attributes exposing (fill, stroke, textAnchor, transform, fontFamily, fontSize)
@@ -70,8 +70,8 @@ drawNode n =
         , text_ 
             [ textAnchor AnchorEnd
             , transform 
-                [ Translate -5.5 -20.5 
-                 , Rotate 60.0 0.0 0.0
+                [ Translate 0.5 17 
+                 , Rotate 90.0 0.0 0.0
                 ]
             , fontFamily [ "calibri" ]
             , fontSize (Px 12)
@@ -79,8 +79,13 @@ drawNode n =
             [ text n ]
         ]
 
-newTreeLayout =
-    TreeLayout topToBottom 250 200 30 100
+tLayout : TreeLayout
+tLayout =
+    TreeLayout topToBottom 
+            250 
+            200
+            60
+            300
 
 main : Program () Model Msg
 main =
@@ -99,7 +104,7 @@ init () =
 view : Model -> Html Msg
 view model =
     div []
-        [ TreeDiagram.Svg.draw TreeDiagram.defaultTreeLayout drawNode drawLine model.tree 
+        [ TreeDiagram.Svg.draw tLayout drawNode drawLine model.tree 
         ]
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
