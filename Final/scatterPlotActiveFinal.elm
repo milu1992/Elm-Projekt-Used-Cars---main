@@ -1,5 +1,5 @@
 module Zwischenstand.ScatterActive exposing (..)
-
+--import--
 import Axis
 import Html exposing (Html,text, pre)
 import Http
@@ -17,7 +17,15 @@ import TypedSvg.Attributes exposing (name)
 import Html exposing (ul)
 import Html exposing (li)
 import Html.Events exposing (onClick)
-
+--main--
+main =
+  Browser.element
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }
+--types--
 type Model
   = Failure
   | Loading
@@ -54,6 +62,8 @@ type alias XyData =
     , data : List Point
     }
 
+
+--data--
 getData : (Result Http.Error String -> Msg) -> Cmd Msg
 getData x = 
     liste
@@ -76,13 +86,13 @@ csvString_to_data csvRaw =
         |> Csv.Decode.decodeCsv decodeCars
         |> Result.toMaybe
         |> Maybe.withDefault []
-
+--initialisierung--
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( Loading
     , getData GotText
     )
-
+--decoder--
 decodeCars : Csv.Decode.Decoder (Cars -> a) a
 decodeCars =
     Csv.Decode.map Cars
@@ -271,6 +281,8 @@ scatterplot model =
          
 
 
+
+--subscriptions--
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none

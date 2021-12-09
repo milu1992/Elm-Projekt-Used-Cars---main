@@ -19,6 +19,7 @@ import TypedSvg.Attributes.InPx exposing (x, y)
 import TypedSvg.Core exposing (Svg)
 import TypedSvg.Types exposing (AnchorAlignment(..), Length(..), Paint(..), Transform(..))
 
+-- main --
 
 main =
   Browser.element
@@ -27,6 +28,8 @@ main =
         , subscriptions = subscriptions
         , view = view
         }
+
+--types--
 
 type Model
   = Failure
@@ -68,7 +71,7 @@ type alias MultiDimData =
     { dimDescription : List String
     , data : List (List MultiDimPoint)
     }
-
+--data--
 getData : (Result Http.Error String -> Msg) -> Cmd Msg
 getData x = 
     liste
@@ -91,7 +94,13 @@ csvStringToValue csvRaw =
         |> Csv.Decode.decodeCsv decodeCars
         |> Result.toMaybe
         |> Maybe.withDefault []
-
+--Inititalisierung--
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( Loading
+    , getData GotText
+    )
+--decoder--
 decodeCars : Csv.Decode.Decoder (Cars -> a) a
 decodeCars =
     Csv.Decode.map Cars
@@ -256,12 +265,8 @@ parallelCoodinatesPlot w ar model =
                     )
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( Loading
-    , getData GotText
-    )
 
+--subscriptions--
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
