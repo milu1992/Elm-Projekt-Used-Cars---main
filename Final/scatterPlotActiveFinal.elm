@@ -77,6 +77,12 @@ csvString_to_data csvRaw =
         |> Result.toMaybe
         |> Maybe.withDefault []
 
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( Loading
+    , getData GotText
+    )
+
 decodeCars : Csv.Decode.Decoder (Cars -> a) a
 decodeCars =
     Csv.Decode.map Cars
@@ -263,19 +269,7 @@ scatterplot model =
             (List.map (point xScaleLocal yScaleLocal) model.data)
         ]
          
-main =
-  Browser.element
-        { init = init
-        , update = update
-        , subscriptions = subscriptions
-        , view = view
-        }
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( Loading
-    , getData GotText
-    )
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
