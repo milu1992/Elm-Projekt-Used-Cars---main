@@ -1,2 +1,2 @@
 # Elm-Projekt-Used-Cars---main
-#first Project
+In diesem Projekt wird der Trainingsdatenstz von Gebrauch visuell dargestellt, um anschließend eine Analyse dessen zu ermöglichen.
