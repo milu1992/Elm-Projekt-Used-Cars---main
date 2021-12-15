@@ -6,7 +6,7 @@ In diesem Projekt wird ein Trainingsdatensatz über Gebrauchtwagen in Indien vis
 * [Anforderungen](#Anforderungen)
 * [Projektvorschau](#Projektvorschau)
 * [Daten](#Daten)
-* [Technische Bereitstellung](#Technische Bereitstellung)
+* [Technische_Bereitstellung](#Technische_Bereitstellung)
 * [Projektinstallation](#Projektinstallation)
 * [Quellen](#Quellen)
 
@@ -37,7 +37,7 @@ Die Projektvorschau ist unter folgenden Link nachvollziehbar: https://github.com
  Im Prozess des Data Cleanings wurden die Originaldaten modifiziert. 
  Dir aufbereiteten Daten sind im Projekt unter [Aufbereitete Daten](Data/AufbereiteteDaten) zu finden. 
 
-## Technische Bereitstellung 
+## Technische_Bereitstellung 
 
 ### Programmiersprachen 
 Folgende Programmiersprachen fanden im Projekt Anwendung:
