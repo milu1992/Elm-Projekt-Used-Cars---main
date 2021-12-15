@@ -1,12 +1,12 @@
 # Elm-Projekt-Used-Cars---main
-In diesem Projekt wird ein Trainingsdatensatz über Gebruachtwagen in Indien visuell dargestellt, um anschließend eine Analyse dessen zu ermöglichen.
+In diesem Projekt wird ein Trainingsdatensatz über Gebrauchtwagen in Indien visuell dargestellt, um anschließend eine Analyse dessen zu ermöglichen.
 
 ## Inhaltsverzeichnis
 * [Einführung](#Einführung)
 * [Anforderungen](#Anforderungen)
 * [Projektvorschau](#Projektvorschau)
 * [Daten](#Daten)
-* [Programmiersprachen](#Programmiersprachen)
+* [Technische Bereitstellung](#Technische Bereitstellung)
 * [Projektinstallation](#Projektinstallation)
 * [Quellen](#Quellen)
 
@@ -37,4 +37,13 @@ Die Projektvorschau ist unter folgenden Link nachvollziehbar: https://github.com
  Im Prozess des Data Cleanings wurden die Originaldaten modifiziert. 
  Dir aufbereiteten Daten sind im Projekt unter [Aufbereitete Daten](Data/AufbereiteteDaten) zu finden. 
 
+##Technische Bereitstellung 
+
+###Programmiersprachen 
+Folgende Programmiersprachen fanden im Projekt Anwendung:
+- [Elm (Version: 0.19.1)](https://github.com/elm/compiler/releases/tag/0.19.1)
+- [JavaScript (Version: ECMAScript 2018)](https://www.w3schools.com/Js/js_2018.asp)
+- [HTML (Version: HTML5)](https://de.wikipedia.org/wiki/HTML5)
+
+### Elm-Pakete
 
