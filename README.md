@@ -7,7 +7,6 @@ In diesem Projekt wird ein Trainingsdatensatz über Gebrauchtwagen in Indien vis
 * [Projektvorschau](#Projektvorschau)
 * [Daten](#Daten)
 * [Technische_Bereitstellung](#Technische_Bereitstellung)
-* [Projektinstallation](#Projektinstallation)
 * [Quellen](#Quellen)
 
 ## Einführung
@@ -62,4 +61,7 @@ Die Installation folgender Elm-Pakete ist notwendig für die Ausführung des Pro
 - [lovasoa/elm-csv (Version: 1.1.7)](https://package.elm-lang.org/packages/lovasoa/elm-csv/1.1.7)
 - [zwilias/elm-reorderable (Version: 1.3.0)](https://package.elm-lang.org/packages/zwilias/elm-reorderable/1.3.0)
 
-
+## Quellen
+- [Aufbau der Readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+- [Readme Syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- [Originaldaten](https://www.kaggle.com/dev7halo/wine-information)
