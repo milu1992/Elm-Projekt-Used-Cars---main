@@ -31,7 +31,7 @@ Die Projektarbeit unterliegt folgenden wesentlichen Anforderungen:
 ## Projektvorschau
 Die Projektvorschau ist unter folgenden Link nachvollziehbar: https://github.com/milu1992/Elm-Projekt-Used-Cars---main.
 
-## Datenherkunft
+## Daten
  Alle [Originaldaten](https://www.kaggle.com/colearninglounge/used-cars-price-prediction) sind der Plattform Kaggle zu entnehmen. Diese liegen innerhalb des Projektes im Ortner [Quelldaten](Data/Quelldaten). 
  Im Prozess des Data Cleanings wurden die Originaldaten modifiziert. 
  Dir aufbereiteten Daten sind im Projekt unter [Aufbereitete Daten](Data/AufbereiteteDaten) zu finden. 
