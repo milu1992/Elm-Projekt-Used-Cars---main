@@ -16,7 +16,7 @@ Ziel der Arbeit war die Erstellung von Visualiserungen basierend eines gegebenen
 Die Projektarbeit unterliegt folgenden wesentlichen Anforderungen: 
 1. Die zur Umsetzung der Visualisierungen mussten durch die Anwendung der Programmiersprache [Elm](https://elm-lang.org/) erfolgen
 2. Der Umfang der Arbeit muss drei sich von einander unterscheidenden Visualisierungstechniken enthalten. 
-    Die Auswahl konnte aus folgenden Techniken getoffen werden:
+    Eine Auswahl konnte aus folgenden Techniken getoffen werden:
 
      - Scatterplot, Zeitreihen-Diagramme
      - Mehrdimensionale Darstellungen
@@ -29,3 +29,8 @@ Die Projektarbeit unterliegt folgenden wesentlichen Anforderungen:
 
 ## Projektvorschau
 Die Projektvorschau ist unter folgenden Link nachvollziehbar: https://github.com/milu1992/Elm-Projekt-Used-Cars---main.
+
+## Datenherkunft
+ Alle [Originaldaten](https://www.kaggle.com/colearninglounge/used-cars-price-prediction) sind der Plattform Kaggle zu entnehmen. Diese liegen innerhalb des Projektes im Ortner [Quelldaten](Daten/Quelldaten). 
+ Im Prozess des Data Cleanings wurden die Originaldaten modifiziert. 
+ Dir aufbereiteten Daten sind im Projekt unter [Aufbereitete Daten](Daten/AufbereiteteDaten) zu finden. 
