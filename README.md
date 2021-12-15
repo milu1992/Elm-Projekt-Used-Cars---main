@@ -37,9 +37,9 @@ Die Projektvorschau ist unter folgenden Link nachvollziehbar: https://github.com
  Im Prozess des Data Cleanings wurden die Originaldaten modifiziert. 
  Dir aufbereiteten Daten sind im Projekt unter [Aufbereitete Daten](Data/AufbereiteteDaten) zu finden. 
 
-##Technische Bereitstellung 
+## Technische Bereitstellung 
 
-###Programmiersprachen 
+### Programmiersprachen 
 Folgende Programmiersprachen fanden im Projekt Anwendung:
 - [Elm (Version: 0.19.1)](https://github.com/elm/compiler/releases/tag/0.19.1)
 - [JavaScript (Version: ECMAScript 2018)](https://www.w3schools.com/Js/js_2018.asp)
