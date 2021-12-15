@@ -16,7 +16,7 @@ Ziel der Arbeit war die Erstellung von Visualiserungen basierend eines gegebenen
 Die Projektarbeit unterliegt folgenden wesentlichen Anforderungen: 
 1. Die zur Umsetzung der Visualisierungen mussten durch die Anwendung der Programmiersprache [Elm](https://elm-lang.org/) erfolgen
 2. Der Umfang der Arbeit muss drei sich von einander unterscheidenden Visualisierungstechniken enthalten. 
-   Die Auswahl konnte aus folgenden Techniken getoffen werden:
+   - Die Auswahl konnte aus folgenden Techniken getoffen werden:
 
      - Scatterplot, Zeitreihen-Diagramme
      - Mehrdimensionale Darstellungen
@@ -26,3 +26,6 @@ Die Projektarbeit unterliegt folgenden wesentlichen Anforderungen:
 3. Die Visualisierungen basieren auf einen vorgegebenen Datensatz
 4. Die Visualisierungen sollen zu einer Visualisierungsanwendung mit Möglichkeit der Interaktion verbunden werden
 5. Basierend der Ergebnisse soll eine Dokumentation angefertigt werden.
+
+## Projektvorschau
+Die Projektvorschau ist unter folgenden Link nachzuvollziehen: https://github.com/milu1992/Elm-Projekt-Used-Cars---main.
