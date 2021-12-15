@@ -3,7 +3,7 @@ In diesem Projekt wird ein Trainingsdatensatz über Gebruachtwagen in Indien vis
 
 ## Inhaltsverzeichnis
 * [Einführung](#Einführung)
-* [Anforderungen] (#Anforderungen)
+* [Anforderungen](#Anforderungen)
 * [Projektvorschau](#Projektvorschau)
 * [Daten](#Daten)
 * [Programmiersprachen](#Programmiersprachen)
@@ -37,4 +37,4 @@ Die Projektvorschau ist unter folgenden Link nachvollziehbar: https://github.com
  Im Prozess des Data Cleanings wurden die Originaldaten modifiziert. 
  Dir aufbereiteten Daten sind im Projekt unter [Aufbereitete Daten](Data/AufbereiteteDaten) zu finden. 
 
- 
+
