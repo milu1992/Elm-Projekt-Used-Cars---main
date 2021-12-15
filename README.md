@@ -3,16 +3,18 @@ In diesem Projekt wird ein Trainingsdatensatz über Gebruachtwagen in Indien vis
 
 ## Inhaltsverzeichnis
 * [Einführung](#Einführung)
+* [Anforderungen] (#Anforderungen)
 * [Projektvorschau](#Projektvorschau)
-* [Datenherkunft](#Datenherkunft)
-* [Technologien](#Technologien)
+* [Daten](#Daten)
+* [Programmiersprachen](#Programmiersprachen)
 * [Projektinstallation](#Projektinstallation)
 * [Quellen](#Quellen)
 
 ## Einführung
-Dies Projekt ist im Rahmen einer universitären Projektarbeit entstanden.
-Ziel der Arbeit war die Erstellung von Visualiserungen basierend eines gegebenen Datensatzes. 
+Dieses Projekt ist im Rahmen einer universitären Projektarbeit, der Martin-luther Universität Halle-Wittenberg der Studienrichtung Wirtschaftsinformatik, entstanden.
+Ziel der Arbeit war die Erstellung von Visualisierungen basierend eines gegebenen Datensatzes. 
 
+## Anforderungen
 Die Projektarbeit unterliegt folgenden wesentlichen Anforderungen: 
 1. Die zur Umsetzung der Visualisierungen mussten durch die Anwendung der Programmiersprache [Elm](https://elm-lang.org/) erfolgen
 2. Der Umfang der Arbeit muss drei sich von einander unterscheidenden Visualisierungstechniken enthalten. 
@@ -34,3 +36,5 @@ Die Projektvorschau ist unter folgenden Link nachvollziehbar: https://github.com
  Alle [Originaldaten](https://www.kaggle.com/colearninglounge/used-cars-price-prediction) sind der Plattform Kaggle zu entnehmen. Diese liegen innerhalb des Projektes im Ortner [Quelldaten](Data/Quelldaten). 
  Im Prozess des Data Cleanings wurden die Originaldaten modifiziert. 
  Dir aufbereiteten Daten sind im Projekt unter [Aufbereitete Daten](Data/AufbereiteteDaten) zu finden. 
+
+ 
